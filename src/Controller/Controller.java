@@ -80,6 +80,12 @@ public class Controller
                 map.getHelicopter().Upgrade();
             }
         }
+        else if(input[0].equals("turn"))
+        {
+            map.NextTurn(input[1]);
+
+
+        }
 
 
         else if (input[1].equals("clear") && input[0].equals("truck")){

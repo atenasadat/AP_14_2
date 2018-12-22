@@ -38,7 +38,11 @@ public class Well {
     public void Fill(){
         Capacity=MAXCAPACITY;
     }
-    public void Upgrade(){
+    public void Upgrade()
+    {
         MAXCAPACITY+=1;
     }
+
+
+
 }

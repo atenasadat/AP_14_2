@@ -7,6 +7,8 @@ public class FlourToBread  extends Workshop{
     private final int y=3;
     private int level;
     private int MAXLEVEL =3;
+    private int producetime;
+    private int tempneed;
 
     public FlourToBread(int level) {
         this.level = level;
@@ -26,7 +28,7 @@ public class FlourToBread  extends Workshop{
         }
     }
 
-    int tempneed=  numberofneeded(level , counter);
+    tempneed=  numberofneeded(level , counter);
 
         for (int i = warehouseitems.size(); i >=0 ; i--)
     {

@@ -176,7 +176,15 @@ public class Map {
         truck.CLear(getWarehouse().getWarehouseItems());
     }
     public void HelicopterClear(){
+
         helicopter.Clear((farm.getItemArrayList()));
     }
+    public void NextTurn(String n)
+    {
+        int nexttime = Integer.parseInt(n);
 
+        eggToFlour.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+
+
+    }
 }
