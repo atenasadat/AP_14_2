@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe2fb239-9bf6-4e15-9b15-88800321d26e" name="Default" comment="">
+    <list default="true" id="fe2fb239-9bf6-4e15-9b15-88800321d26e" name="Default" comment="lastVersion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Cat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Chicken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Chicken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Cow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Cow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/EggToFlour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/EggToFlour.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Farm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/FlourToBread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/FlourToBread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Sheep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Sheep.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -109,8 +100,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Cat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="62" column="49" lean-forward="true" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
+            <state relative-caret-position="378">
+              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
               <folding>
                 <element signature="e#100#101#0" expanded="true" />
                 <element signature="e#128#129#0" expanded="true" />
@@ -278,7 +269,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545575022833" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545575084395" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -360,15 +351,21 @@
       <option name="project" value="LOCAL" />
       <updated>1544966073450</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="lastVersion">
+      <created>1545575042963</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1545575042963</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18425000" />
+    <option name="totallyTimeSpent" value="18512000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="828" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24892704" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -406,7 +403,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="firstcommit" />
-    <option name="LAST_COMMIT_MESSAGE" value="firstcommit" />
+    <MESSAGE value="lastVersion" />
+    <option name="LAST_COMMIT_MESSAGE" value="lastVersion" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/Controller.java" />
@@ -773,8 +771,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Cat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="62" column="49" lean-forward="true" selection-start-line="62" selection-start-column="49" selection-end-line="62" selection-end-column="49" />
+        <state relative-caret-position="378">
+          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
           <folding>
             <element signature="e#100#101#0" expanded="true" />
             <element signature="e#128#129#0" expanded="true" />

@@ -23,9 +23,10 @@ public class Cat extends Animal {
         else
             level=1;
     }
-    public void NextTurn(ArrayList<Item> farmitem){
+    public void NextTurn(ArrayList<Item> farmitem,ArrayList<Item> warehouseitem){
         if (level==0){
             Move();
+            getItem(farmitem,warehouseitem);
         }
         else {
             SmartMove(farmitem);
@@ -43,6 +44,7 @@ public class Cat extends Animal {
             Y-=1;
         else if (random==3)
             X-=1;
+        return;
     }
     public void SmartMove(ArrayList<Item> farmitem){
 
@@ -60,7 +62,7 @@ public class Cat extends Animal {
               if(itemName.equals("egg"))
                 warehouseitem.add(new Egg(1,2));
               else if(itemName.equals("fiber"))
-                  warehouseitem.add(new Fiber());
+                  warehouseitem.add(new Fiber(1,2));
 
 
 
