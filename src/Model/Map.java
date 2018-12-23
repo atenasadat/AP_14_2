@@ -184,7 +184,11 @@ public class Map {
         int nexttime = Integer.parseInt(n);
 
         eggToFlour.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
-
-
+        flourToBread.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+//        bakeCake.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+//        cottonToFiber.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+//        fiberToCloth.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+//        clothToDress.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+//        farm.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
     }
 }

@@ -25,7 +25,6 @@ public class EggToFlour extends Workshop{
 
     public EggToFlour(int level) {
         this.level = level;
-        producetime=10;
     }
 
     public void produce(ArrayList<Item> warehouseitems, ArrayList<Item> farmitem)
@@ -52,6 +51,7 @@ public class EggToFlour extends Workshop{
                 }
             }
         }
+        producetime=10;
 
         isstarted=true;
     }
@@ -109,15 +109,14 @@ public class EggToFlour extends Workshop{
         {
             for (int i = 0; i < tempneed; i++) {//TODO Generating Random X and Y
                 farmitem.add(new Flour(x + 4, y - 8));
-                    producetime=10;
                 }
+            producetime=10;
             }
         else
             {
-            producetime-=n;
+            producetime -= n;
             }
         }
-
+        isstarted=false;
     }
-
 }

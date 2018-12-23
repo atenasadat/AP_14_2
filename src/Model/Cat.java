@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class Cat extends Animal {
     private int level;
 
@@ -20,6 +22,52 @@ public class Cat extends Animal {
             System.out.println("not possible");
         else
             level=1;
+    }
+    public void NextTurn(ArrayList<Item> farmitem){
+        if (level==0){
+            Move();
+        }
+        else {
+            SmartMove(farmitem);
+        }
+    }
+
+    public void Move(){
+        //TODO LIKE MOD
+        int random=FindRandom();
+        if (random==0)
+            Y+=1;
+        else if (random==1)
+            X+=1;
+        else if (random==2)
+            Y-=1;
+        else if (random==3)
+            X-=1;
+    }
+    public void SmartMove(ArrayList<Item> farmitem){
+
+
+
+    }
+    public void getItem(ArrayList<Item> farmitem,ArrayList<Item> warehouseitem)
+    {
+      for(int i=farmitem.size()-1;i>=0;i--)
+      {
+          if(farmitem.get(i).getX()==X && farmitem.get(i).getY()==Y)
+          {
+              String itemName=farmitem.get(i).getType();
+              farmitem.remove(i);
+              if(itemName.equals("egg"))
+                warehouseitem.add(new Egg(1,2));
+              else if(itemName.equals("fiber"))
+                  warehouseitem.add(new Fiber());
+
+
+
+
+
+          }
+      }
     }
 
 }

@@ -7,8 +7,10 @@ public class FlourToBread  extends Workshop{
     private final int y=3;
     private int level;
     private int MAXLEVEL =3;
-    private int producetime;
+    private int producetime=10;
     private int tempneed;
+    private boolean isstarted;
+
 
     public FlourToBread(int level) {
         this.level = level;
@@ -41,14 +43,6 @@ public class FlourToBread  extends Workshop{
             }
         }
     }
-
-        for (int i = 0; i <tempneed ; i++)
-    {//TODO Generating Random X and Y
-        farmitem.add(new Cookie( x+4 , y-8 ));
-
-    }
-
-
 
 }
     public int numberofneeded(int level , int counter)
@@ -98,5 +92,23 @@ public class FlourToBread  extends Workshop{
             return false;
 
         }
+    }
+    public void NextTurn(int n,ArrayList<Item> warehouseitem , ArrayList<Item> farmitem)
+    {   if (isstarted) {
+        if (n > producetime)
+        {
+            for (int i = 0; i <tempneed ; i++)
+            {//TODO Generating Random X and Y
+                farmitem.add(new Cookie( x , y-8 ));
+            }
+            producetime=10;
+        }
+        else
+        {
+            producetime-=n;
+        }
+    }
+    else
+        isstarted=false;
     }
 }

@@ -1,12 +1,13 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Animal
 {
-    private int X;
-    private int Y;
-    private String Type;
+    protected int X;
+    protected int Y;
+    protected String Type;
     public Animal(int x, int y, String type) {
         X = x;
         Y = y;
@@ -35,5 +36,10 @@ public class Animal
 
     public void setY(int y) {
         Y = y;
+    }
+    public int FindRandom(){
+        int number;
+        number=(int) Math.random()%4;
+        return number;
     }
 }
