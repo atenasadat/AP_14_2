@@ -191,4 +191,12 @@ public class Map {
 //        clothToDress.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
 //        farm.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
     }
+
+    public void catcollsion (ArrayList<String> type)
+    {
+
+
+
+
+    }
 }

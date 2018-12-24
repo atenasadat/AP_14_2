@@ -37,7 +37,8 @@ public class Animal
     public void setY(int y) {
         Y = y;
     }
-    public int FindRandom(){
+    public int FindRandom()
+    {
         int number;
         number=(int) Math.random()%4;
         return number;
