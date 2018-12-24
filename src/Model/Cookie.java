@@ -2,7 +2,6 @@ package Model;
 
 public class Cookie extends Item
 {
-    private final int size=2;
 
     public Cookie(int x , int y) {
         super.size =2;

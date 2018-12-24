@@ -185,11 +185,11 @@ public class Map {
 
         eggToFlour.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
         flourToBread.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
-//        bakeCake.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
-//        cottonToFiber.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
-//        fiberToCloth.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
-//        clothToDress.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
-//        farm.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+        bakeCake.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+        cottonToFiber.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+        fiberToCloth.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+        clothToDress.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+        farm.NextTurn(nexttime,warehouse.getWarehouseItems());
     }
 
     public void catcollsion (ArrayList<String> type)

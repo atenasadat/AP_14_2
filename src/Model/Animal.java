@@ -43,4 +43,5 @@ public class Animal
         number=(int) Math.random()%4;
         return number;
     }
+
 }

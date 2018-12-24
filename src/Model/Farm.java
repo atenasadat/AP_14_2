@@ -96,7 +96,8 @@ public class Farm {
         int Y=Integer.parseInt(y);
         grassArrayList.add(new Grass(5));
     }
-    public void CatUpgrade(){
+    public void CatUpgrade()
+    {
         for (int i = 0; i < animalArrayList.size(); i++) {
             if (animalArrayList.get(i) instanceof Cat)
             {
@@ -105,8 +106,12 @@ public class Farm {
             }
         }
     }
-    public void NextTurn(int nexttime)
+    public void NextTurn(int nexttime , ArrayList<Item> warehouseitem)
    {
+       for (Animal animal: animalArrayList)
+       {
 
+
+       }
     }
 }

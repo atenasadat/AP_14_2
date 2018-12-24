@@ -104,7 +104,8 @@ public class EggToFlour extends Workshop{
         }
     }
     public void NextTurn(int n,ArrayList<Item> warehouseitem , ArrayList<Item> farmitem)
-    {   if (isstarted) {
+    {   if (isstarted)
+    {
         if (n > getProducetime())
         {
             for (int i = 0; i < tempneed; i++)

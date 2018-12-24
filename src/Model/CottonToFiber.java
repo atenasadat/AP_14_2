@@ -8,6 +8,33 @@ public class CottonToFiber extends Workshop{
     private  int y=2;
     private int level;
     private int MAXLEVEL =3;
+    private int producetime ;
+    private boolean isstarted;
+    private int tempneed;
+
+    public int getProducetime() {
+        return producetime;
+    }
+
+    public void setProducetime(int producetime) {
+        this.producetime = producetime;
+    }
+
+    public boolean isIsstarted() {
+        return isstarted;
+    }
+
+    public void setIsstarted(boolean isstarted) {
+        this.isstarted = isstarted;
+    }
+
+    public int getTempneed() {
+        return tempneed;
+    }
+
+    public void setTempneed(int tempneed) {
+        this.tempneed = tempneed;
+    }
 
     public CottonToFiber(int level) {
         this.level = level;
@@ -50,7 +77,7 @@ public class CottonToFiber extends Workshop{
             }
         }
 
-        int tempneed=  numberofneeded(level , counter);
+        tempneed=  numberofneeded(level , counter);
 
         for (int i = warehouseitems.size(); i >=0 ; i--)
         {
@@ -125,5 +152,28 @@ public class CottonToFiber extends Workshop{
 
         }
     }
+
+
+
+    public void NextTurn(int n,ArrayList<Item> warehouseitem , ArrayList<Item> farmitem)
+    {   if (isstarted)
+    {
+        if (n > getProducetime())
+        {
+            for (int i = 0; i < tempneed; i++)
+            {
+                //TODO Generating Random X and Y
+                farmitem.add(new Fiber(x + 4, y - 8));
+            }
+            producetime=10;
+        }
+        else
+        {
+            producetime -= n;
+        }
+    }
+        isstarted=false;
+    }
+
 
 }

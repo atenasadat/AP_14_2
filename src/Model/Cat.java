@@ -61,7 +61,6 @@ public class Cat extends Animal {
             if (farmitem.get(i).getX() == X && farmitem.get(i).getY() == Y) {
                 String itemName = farmitem.get(i).getType();
 
-
                 farmitem.remove(i);
 
 
