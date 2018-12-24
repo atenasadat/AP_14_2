@@ -65,6 +65,10 @@ public class Controller
             {
                 map.getCottonToFiber().Upgrade(map.getCottonToFiber().getLevel());
             }
+            else if (input[1].equals("warehouse"))
+            {
+                map.getWarehouse().Upgrade();
+            }
             else if (input[1].equals("cat"))
             {
                 map.getFarm().CatUpgrade();

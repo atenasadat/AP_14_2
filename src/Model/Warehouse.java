@@ -17,6 +17,18 @@ public class Warehouse
         this.warehouseItems = warehouseItems;
     }
 
+    public void Upgrade()
+    {
+        if(MAXCAPACITY+20<160)
+        {
+            MAXCAPACITY+=20;
+        }
+        else
+        {
+            System.out.println("not possible");
+        }
+    }
+
     public void AddItem(ArrayList<String> type)
     {
 

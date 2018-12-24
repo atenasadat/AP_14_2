@@ -57,17 +57,12 @@ public class Cat extends Animal {
     }
 
     public ArrayList<String> getItem(ArrayList<Item> farmitem, ArrayList<Item> warehouseitem) {
+        //چگونه ارتباط بین این ها را بفهمیم؟؟؟
         for (int i = farmitem.size() - 1; i >= 0; i--) {
             if (farmitem.get(i).getX() == X && farmitem.get(i).getY() == Y) {
                 String itemName = farmitem.get(i).getType();
-
-
                 farmitem.remove(i);
-
-
             }
         }
     }
-
-
 }
