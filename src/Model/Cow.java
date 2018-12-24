@@ -22,6 +22,7 @@ public class Cow extends Domestic{
         }
     }
 
+
     public void Move(){
         //TODO LIKE MOD
         int random=FindRandom();
