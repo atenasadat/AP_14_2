@@ -2,7 +2,7 @@ package Model;
 
 public class Lion extends Wild {
     private int cagesize=20;
-
+    private  final int timeincage = 5;
     public int getCagesize() {
         return cagesize;
     }
@@ -11,7 +11,14 @@ public class Lion extends Wild {
         this.cagesize = cagesize;
     }
 
-    public Lion(int x, int y, String type, boolean ISatcage, int timeincage, String type1) {
-        super(x, y, type, ISatcage, timeincage, type1);
+    public Lion(int x, int y, String type, boolean ISatcage) {
+        super(x, y, type, ISatcage);
+    }
+
+    @Override
+    public void NextTurn(int n, Farm farm, Warehouse warehouse)
+    {
+
+
     }
 }

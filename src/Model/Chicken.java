@@ -45,7 +45,7 @@ public class Chicken extends Domestic
         farmitem.add(new Egg(X,Y));
     }
 
-    public void NextTurn(int n, ArrayList<Item> farmitem)
+    public void NextTurn(int n, Farm farm,Warehouse warehouse)
     {
 
         for (int i = 0; i < n ; i++)
@@ -53,14 +53,14 @@ public class Chicken extends Domestic
             if (!ishungry)
                 Move();
             else {
-                SmartMove(farmitem);
-                Eat(farmitem);
+                SmartMove(farm.itemArrayList);
+                Eat(farm.itemArrayList);
             }
             produceTime--;
             checkhungry(n);
             if (produceTime==0)
             {
-                produceEgg(farmitem);
+                produceEgg(farm.itemArrayList);
                 produceTime=5;
             }
         }
@@ -68,7 +68,6 @@ public class Chicken extends Domestic
     }
     public void Move()
     {
-        //TODO LIKE MOD
         int random=FindRandom();
         if (random == 0)
             Y+=1;
@@ -81,7 +80,8 @@ public class Chicken extends Domestic
     }
 
     public int[] SmartMove(ArrayList<Item> farmitem)
-    {//TODO BFS
+    {
+        //TODO BFS
         double min=2500;
         int[] X_Ymin=new int[2];
         for(int i=farmitem.size()-1;i>=0;i--)
@@ -99,10 +99,20 @@ public class Chicken extends Domestic
         }
         return X_Ymin;
     }
-    public void Eat(ArrayList<Item> farmitem){
-        for (int i = farmitem.size()-1; i >= 0; i--) {
-            if (farmitem.get(i).getType().equals("grass")) {
-                if (X == farmitem.get(i).getX() && Y == farmitem.get(i).getY()) {
+
+    ///
+    ////
+    ////
+
+    public void Eat(ArrayList<Item> farmitem)
+    {
+
+        for (int i = farmitem.size()-1; i >= 0; i--)
+        {
+            if (farmitem.get(i).getType().equals("grass"))
+            {
+                if (X == farmitem.get(i).getX() && Y == farmitem.get(i).getY())
+                {
                     farmitem.remove(i);
                 }
             }
