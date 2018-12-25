@@ -4,18 +4,23 @@ import java.util.ArrayList;
 
 public class Farm {
     ArrayList<Animal> animalArrayList = new ArrayList<>();
-
-   private ArrayList<Item> itemArrayList = new ArrayList<>();
-
+    ArrayList<Item> itemArrayList = new ArrayList<>();
     ArrayList<Wild> cageanimal=new ArrayList<>();
-
     ArrayList<Grass> grassArrayList=new ArrayList<>();
-
     User user=User.getUser();
-
     Animal animal;
-
     Item item;
+    Wild wild;
+
+    private  int WIDTH=20;
+    private int HEIGHT=20;
+
+    public int getWIDTH() {
+        return WIDTH;
+    }
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
 
     public void setCageanimal(ArrayList<Wild> cageanimal) {
         this.cageanimal = cageanimal;
@@ -106,12 +111,41 @@ public class Farm {
             }
         }
     }
-    public void NextTurn(int nexttime , ArrayList<Item> warehouseitem)
-   {
-       for (Animal animal: animalArrayList)
+
+    public void wildNextTurn(int n)
+    {
+        int rand =(int) Math.random() % 2;
+
+        int temp = n/wild.getTimeAppear();
+       if(n >= wild.getTimeAppear())
        {
+           for (int i = 0; i <temp ; i++)
+           {
+               int x_rand = (int) Math.random() % 10 + 10 ;
+               int y_rand = (int) Math.random() % 10 + 10;
+               if(rand == 0)
+                   animalArrayList.add(new Lion(x_rand , y_rand , "lion" , false));
+               if(rand == 1) {
+                   animalArrayList.add(new Bear(x_rand, y_rand, "bear", false));
+               }
+               n -= wild.getTimeAppear();
+
+           }
 
 
        }
+       if(n < wild.getTimeAppear())
+       {
+
+           wild.setTimeAppear(wild.getTimeAppear() - n);
+
+       }
+       if( wild.getTimeAppear() == 0)
+           wild.setTimeAppear(wild.getMAXTIMEAPPEAR());
+
+
+
+
     }
+
 }

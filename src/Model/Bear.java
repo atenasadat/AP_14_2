@@ -11,7 +11,13 @@ public class Bear extends Wild {
         this.cagesize = cagesize;
     }
 
-    public Bear(int x, int y, String type, boolean ISatcage, int timeincage, String type1) {
-        super(x, y, type, ISatcage, timeincage, type1);
+    public Bear(int x, int y, String type, boolean ISatcage) {
+        super(x, y, type, ISatcage);
+    }
+
+    @Override
+    public void NextTurn(int n, Farm farm, Warehouse warehouse) {
+
     }
 }
+

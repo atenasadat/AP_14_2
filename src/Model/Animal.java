@@ -3,7 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Animal
+public abstract class Animal
 {
     protected int X;
     protected int Y;
@@ -43,5 +43,6 @@ public class Animal
         number=(int) Math.random()%4;
         return number;
     }
+    public abstract void NextTurn(int n,Farm farm,Warehouse warehouse);
 
 }

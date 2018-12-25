@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 
 public class Map {
+
     private Farm farm;
     private Warehouse warehouse;
     private EggToFlour eggToFlour=new EggToFlour(0);
@@ -15,6 +16,16 @@ public class Map {
     private User user=User.getUser();
     private Helicopter helicopter=new Helicopter();
     private Truck truck=new Truck();
+    private int WIDTH=30;
+    private int HEIGHT=30;
+
+    public int getWIDTH() {
+        return WIDTH;
+    }
+
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
 
     public FlourToBread getFlourToBread() {
         return flourToBread;
@@ -125,7 +136,7 @@ public class Map {
         }
         else
         {
-            //System.out.printLn("no enough Money");
+            System.out.println("no enough Money");
         }
 
     }
@@ -184,12 +195,31 @@ public class Map {
         int nexttime = Integer.parseInt(n);
 
         eggToFlour.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+
         flourToBread.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+
         bakeCake.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+
         cottonToFiber.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+
         fiberToCloth.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
+
         clothToDress.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
-        farm.NextTurn(nexttime,warehouse.getWarehouseItems());
+
+        for (int i = getFarm().animalArrayList.size()-1; i >=0  ; i--)
+        {
+            getFarm().animalArrayList.get(i).NextTurn(nexttime,farm,warehouse);
+            if (getFarm().animalArrayList.get(i) instanceof  Dog){
+                Dog dog=(Dog)getFarm().animalArrayList.get(i);
+
+                if (dog.isIsdead())
+                    getFarm().animalArrayList.remove(i);
+            }
+        }
+
+
+        getFarm().wildNextTurn(nexttime);
+
     }
 
     public void catcollsion (ArrayList<String> type)

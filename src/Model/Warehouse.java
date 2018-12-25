@@ -7,7 +7,34 @@ public class Warehouse
 
     private int MAXCAPACITY = 100;
     private int currentcapacityleft = 0;
-   private ArrayList <Item> warehouseItems = new ArrayList<>();
+
+    public int getMAXCAPACITY() {
+        return MAXCAPACITY;
+    }
+
+    public void setMAXCAPACITY(int MAXCAPACITY) {
+        this.MAXCAPACITY = MAXCAPACITY;
+    }
+
+    public int getCurrentcapacityleft() {
+        return currentcapacityleft;
+    }
+
+    public void setCurrentcapacityleft(int currentcapacityleft) {
+        this.currentcapacityleft = currentcapacityleft;
+    }
+
+    public int getMAXUPGRADE() {
+        return MAXUPGRADE;
+    }
+
+    public int getUPGRADEAMOUNT() {
+        return UPGRADEAMOUNT;
+    }
+
+    private final int MAXUPGRADE=160;
+    private final int UPGRADEAMOUNT=20;
+    private ArrayList <Item> warehouseItems = new ArrayList<>();
 
     public ArrayList<Item> getWarehouseItems() {
         return warehouseItems;
@@ -19,9 +46,9 @@ public class Warehouse
 
     public void Upgrade()
     {
-        if(MAXCAPACITY+20<160)
+        if(MAXCAPACITY + UPGRADEAMOUNT < MAXUPGRADE)
         {
-            MAXCAPACITY+=20;
+            MAXCAPACITY += UPGRADEAMOUNT;
         }
         else
         {
@@ -31,10 +58,6 @@ public class Warehouse
 
     public void AddItem(ArrayList<String> type)
     {
-
-
-
-
         for (int i = 0; i <type.size() ; i++)
         {
             //TODO X,Y
