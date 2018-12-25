@@ -7,6 +7,13 @@ public class Warehouse
 
     private int MAXCAPACITY = 100;
     private int currentcapacityleft = 0;
+    private final int MAXUPGRADE=160;
+    private final int UPGRADEAMOUNT=20;
+    private final int upgradeMoney=200;
+    User user=User.getUser();
+    private ArrayList <Item> warehouseItems = new ArrayList<>();
+
+
 
     public int getMAXCAPACITY() {
         return MAXCAPACITY;
@@ -32,10 +39,6 @@ public class Warehouse
         return UPGRADEAMOUNT;
     }
 
-    private final int MAXUPGRADE=160;
-    private final int UPGRADEAMOUNT=20;
-    private ArrayList <Item> warehouseItems = new ArrayList<>();
-
     public ArrayList<Item> getWarehouseItems() {
         return warehouseItems;
     }
@@ -48,6 +51,7 @@ public class Warehouse
     {
         if(MAXCAPACITY + UPGRADEAMOUNT < MAXUPGRADE)
         {
+           if(user.DecreaseMoney(upgradeMoney))
             MAXCAPACITY += UPGRADEAMOUNT;
         }
         else

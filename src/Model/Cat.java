@@ -4,7 +4,11 @@ import java.util.ArrayList;
 
 public class Cat extends Animal {
     private int level;
+    private final int upgradeMoney=50;
 
+    public int getUpgradeMoney() {
+        return upgradeMoney;
+    }
     public int getLevel() {
         return level;
     }

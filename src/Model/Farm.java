@@ -107,6 +107,7 @@ public class Farm {
             if (animalArrayList.get(i) instanceof Cat)
             {
                 Cat cat=(Cat)animalArrayList.get(i);
+               if(user.DecreaseMoney(cat.getUpgradeMoney()));
                 cat.Upgrade();
             }
         }
@@ -131,14 +132,10 @@ public class Farm {
                n -= wild.getTimeAppear();
 
            }
-
-
        }
        if(n < wild.getTimeAppear())
        {
-
            wild.setTimeAppear(wild.getTimeAppear() - n);
-
        }
        if( wild.getTimeAppear() == 0)
            wild.setTimeAppear(wild.getMAXTIMEAPPEAR());
