@@ -1,17 +1,14 @@
 package Model;
 
 public class Grass {
-    private int Level;
 
-    public Grass(int level) {
-        Level = level;
+    private int cost=50;
+
+
+    public int getCost() {
+        return cost;
     }
 
-    public int getLevel() {
-        return Level;
-    }
 
-    public void setLevel(int level) {
-        Level = level;
-    }
+
 }

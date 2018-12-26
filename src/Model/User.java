@@ -18,9 +18,9 @@ public class User
     }
     public boolean DecreaseMoney(int cost)
     {
-        if(user.getMoney()>=cost)
+        if(Money>=cost)
         {
-            user.setMoney(user.getMoney()-cost);
+            Money=Money-cost;
             return true;
 
         }
@@ -30,6 +30,11 @@ public class User
             return false;
         }
 
+    }
+
+    public void IncreaseMoney(int cost)
+    {
+        Money=Money+cost;
     }
 
 

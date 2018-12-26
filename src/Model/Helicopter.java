@@ -5,8 +5,9 @@ import java.util.ArrayList;
 public class Helicopter extends Transportaion {
     ArrayList<Item> items=new ArrayList<>();
     public Helicopter() {
-        super.MAXCAPACITY=100;
-        super.currentCapacity=0;
+        MAXCAPACITY=100;
+        currentCapacity=0;
+        UpgradeMoney=100;
     }
 
     @Override
@@ -36,6 +37,38 @@ public class Helicopter extends Transportaion {
 
 
     }
+
+    @Override
+    public void nextturn(int n)
+    {
+        if(isTravelling)
+        {
+            if (n >= timeTravel)
+            {
+
+                items.clear();
+                n -= timeTravel;
+                isTravelling=false;
+
+            }
+            if (n < timeTravel)
+            {
+                timeTravel -= n;
+            }
+            if (n == 0)
+            {
+                timeTravel = 10;
+
+            }
+        }
+
+
+    }
+
+
+
+
+
     public void Clear(ArrayList<Item> mapitems){
         for (int i = items.size()-1; i >=0 ; i--) {
             mapitems.add(items.get(i));
@@ -43,14 +76,24 @@ public class Helicopter extends Transportaion {
         }
         currentCapacity=0;
     }
-    public void Go(){
+    public void Go()
+    {
+        isTravelling=true;
+        for (int i = items.size() - 1; i >= 0; i--)
+        {
+            user.IncreaseMoney(items.get(i).getCost());
+        }
 
     }
-    public void Upgrade(){
-        if(MAXCAPACITY+10<=100)
-            MAXCAPACITY+=10;
-        else
-            System.out.println("not possible");
+    public void Upgrade()
+    {
+        if(user.DecreaseMoney(UpgradeMoney))
+        {
+            if (MAXCAPACITY + 10 <= 100)
+                MAXCAPACITY += 10;
+            else
+                System.out.println("not possible");
+        }
 
     }
 }

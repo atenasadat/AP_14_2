@@ -8,6 +8,8 @@ public class Truck extends Transportaion{
     public Truck() {
         MAXCAPACITY=50;
         currentCapacity=0;
+        UpgradeMoney=50;
+        timeTravel=10;
     }
 
     @Override
@@ -23,20 +25,58 @@ public class Truck extends Transportaion{
             }
         }
     }
-    public void CLear(ArrayList<Item> warehouseitems){
-        for (int i = items.size()-1; i >=0 ; i--) {
+    public void CLear(ArrayList<Item> warehouseitems)
+    {
+        for (int i = items.size()-1; i >=0 ; i--)
+        {
             warehouseitems.add(items.get(i));
             items.remove(i);
         }
         currentCapacity=0;
     }
-    public void Go(){
+
+    public void Go()
+    {
+        isTravelling=true;
+    }
+
+    public void nextturn(int n)
+    {
+        if(isTravelling)
+        {
+            if (n >= timeTravel)
+            {
+                for (int i = items.size() - 1; i >= 0; i--)
+                {
+                    user.IncreaseMoney(items.get(i).getCost());
+                }
+                items.clear();
+                n -= timeTravel;
+                isTravelling=false;
+
+            }
+            if (n < timeTravel)
+            {
+                timeTravel -= n;
+            }
+            if (n == 0)
+            {
+                timeTravel = 10;
+
+            }
+        }
+
 
     }
-    public void Upgrade(){
-        if (MAXCAPACITY+10<=100)
-            MAXCAPACITY+=10;
-        else
-            System.out.println("not possible");
+
+    public void Upgrade()
+    {
+        if(user.DecreaseMoney(UpgradeMoney))
+        {
+            if (MAXCAPACITY + 10 <= 100)
+                MAXCAPACITY += 10;
+            else
+                System.out.println("not possible");
+        }
     }
 }

@@ -127,20 +127,6 @@ public class Map {
         this.farm = farm;
     }
 
-    public void DecreaseMoney(int cost)
-    {
-        if(user.getMoney()>=cost)
-        {
-            user.setMoney(user.getMoney()-cost);
-
-        }
-        else
-        {
-            System.out.println("no enough Money");
-        }
-
-    }
-
 
     public void startworkshop(String workshop_name)
     {
@@ -177,8 +163,10 @@ public class Map {
     {
         if (well.getMAXCAPACITY()<8)
         {
+
+            if(user.DecreaseMoney(well.getUpgradeCost()))
             well.Upgrade();
-            DecreaseMoney(50);
+
         }
         else
             System.out.println("not possible");

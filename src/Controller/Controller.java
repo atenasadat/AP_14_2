@@ -28,7 +28,7 @@ public class Controller
         }
         else if (input[0].equals("well")){
 
-            map.DecreaseMoney(map.getWell().getWATERINGCOST());
+           // map.DecreaseMoney(map.getWell().getWATERINGCOST());
             map.getWell().Fill();
         }
 

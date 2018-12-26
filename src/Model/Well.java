@@ -4,9 +4,18 @@ public class Well {
     private int Capacity;
     private  int MAXCAPACITY;
     private final int WATERINGCOST=190;
+    private final int UpgradeCost=50;
+    User user=User.getUser();
+
+    public int getUpgradeCost() {
+        return UpgradeCost;
+    }
+
     private int Currenttime;
 
-    public Well(int capacity) {
+    public Well(int capacity)
+    {
+
         Capacity = capacity;
         MAXCAPACITY=5;
     }
@@ -35,8 +44,13 @@ public class Well {
         Currenttime = currenttime;
     }
 
-    public void Fill(){
-        Capacity=MAXCAPACITY;
+    public void Fill()
+    {
+        if(user.DecreaseMoney(WATERINGCOST))
+        {
+            Capacity=MAXCAPACITY;
+        }
+
     }
     public void Upgrade()
     {

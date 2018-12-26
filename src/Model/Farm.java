@@ -43,15 +43,15 @@ public class Farm {
     public void BuyAnimal(String Type) {
         if (Type.equals("chicken")) {
 
-            AnimallDecreaseMoney(new Chicken(5,5,"chicken").getCOST());
+            if(user.DecreaseMoney(new Chicken(5,5,"chicken").getCOST()));
             animalArrayList.add(new Chicken(5,5,"chicken"));
         }
         else if (Type.equals("sheep")) {
-            AnimallDecreaseMoney(new Sheep(5,5,"sheep").getCOST());
+            if(user.DecreaseMoney(new Sheep(5,5,"sheep").getCOST()));
             animalArrayList.add(new Sheep(5,5,"sheep"));
         }
         else if (Type.equals("cow")) {
-            AnimallDecreaseMoney(new Cow(5,5,"sheep").getCOST());
+           if(user.DecreaseMoney(new Cow(5,5,"sheep").getCOST()));
             animalArrayList.add(new Cow(5,5,"sheep"));
         }
     }
@@ -99,7 +99,7 @@ public class Farm {
     public void Plant(String x,String y){
         int X=Integer.parseInt(x);
         int Y=Integer.parseInt(y);
-        grassArrayList.add(new Grass(5));
+        grassArrayList.add(new Grass());
     }
     public void CatUpgrade()
     {

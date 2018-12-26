@@ -5,6 +5,11 @@ public class Item {
     private int X;
     private int Y;
     protected int size;
+    protected int cost;
+
+    public int getCost() {
+        return cost;
+    }
 
     public int getSize() {
         return size;

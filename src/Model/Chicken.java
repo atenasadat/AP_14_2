@@ -51,7 +51,7 @@ public class Chicken extends Domestic
         for (int i = 0; i < n ; i++)
         {
             if (!ishungry)
-                Move();
+                Move(farm.getWIDTH(),farm.getHEIGHT());
             else {
                 SmartMove(farm.itemArrayList);
                 Eat(farm.itemArrayList);
@@ -66,19 +66,33 @@ public class Chicken extends Domestic
         }
 
     }
-    public void Move()
-    {
-        int random=FindRandom();
-        if (random == 0)
-            Y+=1;
-        else if (random ==1)
-            X+=1;
-        else if (random==2)
-            Y-=1;
-        else if (random==3)
-            X-=1;
-    }
+    public void Move(int WIDTH,int HEIGHT) {
+        //TODO LIKE MOD
+        int random = FindRandom();
+        if (random == 0) {
+            if (Y + 1 <= HEIGHT)
+                Y++;
+            else
+                Y--;
 
+        } else if (random == 1) {
+            if (X + 1 <= WIDTH)
+                X += 1;
+            else
+                X--;
+        } else if (random == 2) {
+            if (Y - 1 >= 0)
+                Y --;
+            else
+                Y++;
+
+        } else if (random == 3) {
+            if (X - 1 >= 0)
+                X -= 1;
+            else
+                X++;
+        }
+    }
     public int[] SmartMove(ArrayList<Item> farmitem)
     {
         //TODO BFS
