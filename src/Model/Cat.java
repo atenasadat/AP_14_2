@@ -5,6 +5,9 @@ import java.util.ArrayList;
 public class Cat extends Animal {
     private int level;
     private final int upgradeMoney=50;
+    private int TimeCarryItem=2;
+    private boolean busy;
+    private boolean permitFindX_Y;
 
     public int getUpgradeMoney() {
         return upgradeMoney;
@@ -22,29 +25,72 @@ public class Cat extends Animal {
 
     }
 
-    public void Upgrade() {
+    public void Upgrade()
+    {
         if (level == 1)
             System.out.println("not possible");
         else
+
             level = 1;
     }
 
-    public void NextTurn(int n,Farm farm,Warehouse warehouse) {
+    public void NextTurn(int n,Farm farm,Warehouse warehouse)
+    {
+        ArrayList<String> getItem = null;
+        int X_Y[]=new int[2];
+        int X_Ywerhouse[]=new int[2];
+        X_Ywerhouse[0]= warehouse.getX();
+        X_Ywerhouse[1]= warehouse.getY();
+
         for (int i = 0; i < n; i++)
         {
+
             if (farm.hasItem())
             {
                 if (level == 0)
                 {
-                    int X_Y[]=FindRandItem(farm.getItemArrayList());
-                    Move(farm.getWIDTH(), farm.getHEIGHT(), X_Y);
-                    getItem(farm.itemArrayList, warehouse,X_Y);
+                    if(busy==false && permitFindX_Y==true )
+                    {
+                        X_Y=FindRandItem(farm.getItemArrayList());
+                        permitFindX_Y=false;
+
+                    }
+
+                    if(busy==false)
+                    {
+                        Move(farm.getWIDTH(), farm.getHEIGHT(), X_Y);
+                        getItem=getItem(farm.getItemArrayList(), warehouse, X_Y);
+                    }
+
+                    if(busy)
+                    {
+                        Move(farm.getWIDTH(), farm.getHEIGHT(), X_Ywerhouse);
+                        putInWarehouse(getItem, warehouse);
+                        permitFindX_Y=true;
+
+                    }
+
                 }
                 else
                 {
-                    int[] X_Y=MinDistance(farm.getItemArrayList());
-                    Move(farm.getWIDTH(), farm.getHEIGHT(), X_Y);
-                    getItem(farm.itemArrayList, warehouse,X_Y);
+                    if(busy==false && permitFindX_Y==true )
+                    {
+                        X_Y=MinDistance(farm.getItemArrayList());
+                        permitFindX_Y=false;
+                    }
+
+                    if(busy==false)
+                    {
+                        Move(farm.getWIDTH(), farm.getHEIGHT(), X_Y);
+                        getItem=getItem(farm.getItemArrayList(), warehouse, X_Y);
+                    }
+
+                    if(busy)
+                    {
+                        Move(farm.getWIDTH(), farm.getHEIGHT(), X_Ywerhouse);
+                        putInWarehouse(getItem, warehouse);
+                        permitFindX_Y=true;
+                    }
                 }
             }
         }
@@ -93,21 +139,33 @@ public class Cat extends Animal {
         }
     }
 
-    public void getItem(ArrayList<Item> farmitem,Warehouse warehouse, int[] X_Y)
+    public ArrayList getItem(ArrayList<Item> farmitem,Warehouse warehouse, int[] X_Y)
     {
-        ArrayList<String> itemadded=new ArrayList<>();
+        ArrayList<String> getItem=new ArrayList<>();
         for (int i = farmitem.size()-1; i >=0 ; i--)
         {
-            if (X_Y[0] == farmitem.get(i).getX() && X_Y[1] == farmitem.get(i).getY())
+            if (X_Y[0] == farmitem.get(i).getX() && X_Y[1] == farmitem.get(i).getY() && X == farmitem.get(i).getX() && Y == farmitem.get(i).getY() )
             {
                 if(warehouse.getCurrentcapacityleft()+farmitem.get(i).getSize()<=warehouse.getMAXCAPACITY())
                 {
-                    itemadded.add(farmitem.get(i).getType());
+                    getItem.add(farmitem.get(i).getType());
                     farmitem.remove(i);
+                    busy=true;
                 }
             }
         }
-        warehouse.AddItem(itemadded);
+        return getItem;
+       // warehouse.AddItem(itemadded);
+    }
+
+    public void putInWarehouse(ArrayList<String> getItem,Warehouse warehouse)
+    {
+        if (X ==warehouse.getX()  && Y == warehouse.getY() )
+        {
+            warehouse.AddItem(getItem);
+            busy=false;
+
+        }
     }
 
     public int[] MinDistance(ArrayList<Item> farmitem)
@@ -117,8 +175,7 @@ public class Cat extends Animal {
         int[] X_Ymin=new int[2];
         for(int i=farmitem.size()-1;i>=0;i--)
         {
-            if(farmitem.get(i).getType().equals("grass"))
-            {
+
                 double distance=Math.pow(X-farmitem.get(i).getX(),2)+Math.pow(Y-farmitem.get(i).getY(),2);
                 if(distance<min)
                 {
@@ -126,7 +183,7 @@ public class Cat extends Animal {
                     X_Ymin[0]=farmitem.get(i).getX();
                     X_Ymin[1]=farmitem.get(i).getY();
                 }
-            }
+
         }
         return X_Ymin;
     }

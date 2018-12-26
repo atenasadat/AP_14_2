@@ -10,11 +10,19 @@ public class Warehouse
     private final int MAXUPGRADE=160;
     private final int UPGRADEAMOUNT=20;
     private final int upgradeMoney=200;
+    private int x=2;
+    private int y=2;
     User user=User.getUser();
     private ArrayList <Item> warehouseItems = new ArrayList<>();
 
 
+    public int getX() {
+        return x;
+    }
 
+    public int getY() {
+        return y;
+    }
     public int getMAXCAPACITY() {
         return MAXCAPACITY;
     }
