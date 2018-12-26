@@ -147,7 +147,7 @@ public class CottonToFiber extends Workshop{
         }
         else
         {
-            //TODO IN VIEW System.out.println("no enough money");
+            System.out.println("no enough money");
             return false;
 
         }

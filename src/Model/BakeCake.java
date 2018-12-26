@@ -25,7 +25,7 @@ public class BakeCake extends Workshop {
     }
 
     @Override
-    public void produce(ArrayList<Item> warehouseitems, ArrayList<Item> farmitem) {
+    public  void produce(ArrayList<Item> warehouseitems, ArrayList<Item> farmitem) {
         int counter1 =0;
         int counter2 =0;
         for (int i = 0; i <warehouseitems.size() ; i++)

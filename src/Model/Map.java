@@ -130,16 +130,18 @@ public class Map {
 
     public void startworkshop(String workshop_name)
     {
-        if(workshop_name.equals("ٍEggytoFlour"))
+        if(workshop_name.equals("ٍEggyToFlour"))
             eggToFlour.produce(warehouse.getWarehouseItems() , farm.getItemArrayList());
         if(workshop_name.equals("FlourToBread"))
-            eggToFlour.produce(warehouse.getWarehouseItems() , farm.getItemArrayList());
-
-      //TODO others...
-
-
-
-
+            flourToBread.produce(warehouse.getWarehouseItems() , farm.getItemArrayList());
+        if(workshop_name.equals("CottonToFiber"))
+           cottonToFiber.produce(warehouse.getWarehouseItems() , farm.getItemArrayList());
+        if(workshop_name.equals("ClothToDress"))
+            clothToDress.produce(warehouse.getWarehouseItems() , farm.getItemArrayList());
+        if(workshop_name.equals("FiberToClothes"))
+            fiberToCloth.produce(warehouse.getWarehouseItems() , farm.getItemArrayList());
+        if(workshop_name.equals("BakeCake"))
+            bakeCake.produce(warehouse.getWarehouseItems() , farm.getItemArrayList());
 
     }
     public void Plant(String x,String y){
@@ -204,8 +206,6 @@ public class Map {
                     getFarm().animalArrayList.remove(i);
             }
         }
-
-
         getFarm().wildNextTurn(nexttime);
 
     }

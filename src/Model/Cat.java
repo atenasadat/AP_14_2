@@ -30,61 +30,120 @@ public class Cat extends Animal {
     }
 
     public void NextTurn(int n,Farm farm,Warehouse warehouse) {
-        for (int i = 0; i < n; i++) {
-            if (level == 0) {
-                Move(farm.getWIDTH(),farm.getHEIGHT());
-                getItem(farm.itemArrayList,warehouse);
-            } else {
-                SmartMove(farm.itemArrayList);
-                getItem(farm.itemArrayList,warehouse);
+        for (int i = 0; i < n; i++)
+        {
+            if (farm.hasItem())
+            {
+                if (level == 0)
+                {
+                    int X_Y[]=FindRandItem(farm.getItemArrayList());
+                    Move(farm.getWIDTH(), farm.getHEIGHT(), X_Y);
+                    getItem(farm.itemArrayList, warehouse,X_Y);
+                }
+                else
+                {
+                    int[] X_Y=MinDistance(farm.getItemArrayList());
+                    Move(farm.getWIDTH(), farm.getHEIGHT(), X_Y);
+                    getItem(farm.itemArrayList, warehouse,X_Y);
+                }
             }
         }
     }
 
 
-    public void Move(int WIDTH,int HEIGHT) {
-        //TODO LIKE MOD
-        int random = FindRandom();
-        if (random == 0) {
-            if (Y + 1 <= HEIGHT)
-                Y++;
-            else
-                Y--;
-
-        } else if (random == 1) {
-            if (X + 1 <= WIDTH)
-                X += 1;
-            else
-                X--;
-        } else if (random == 2) {
-            if (Y - 1 >= 0)
-                Y -= 1;
-            else
-                Y++;
-
-        } else if (random == 3)
+    public void Move(int WIDTH,int HEIGHT,int[] X_Y)
+    {
+        int x=X_Y[0];
+        int y=X_Y[1];
+        if (X == x && y < Y)
         {
-            if(X-1>= 0)
-            X -= 1;
-            else
+            Y--;
+        }
+        if (X == x && y > Y)
+        {
+            Y++;
+        }
+        if (Y==y && x<X)
+        {
+            X--;
+        }
+        if (Y==y && x>X)
+        {
             X++;
         }
+        if (x> X && y>Y)
+        {
+            X++;
+            Y++;
+        }
+        if (x> X && y<Y)
+        {
+            X++;
+            Y--;
+        }
+        if (x< X && y<Y)
+        {
+            X--;
+            Y--;
+        }
+        if (x<X && y>Y)
+        {
+            X--;
+            Y++;
+        }
     }
-    public void SmartMove(ArrayList<Item> farmitem) {
 
-
-    }
-
-    public void getItem(ArrayList<Item> farmitem,Warehouse warehouse) {
+    public void getItem(ArrayList<Item> farmitem,Warehouse warehouse, int[] X_Y)
+    {
         ArrayList<String> itemadded=new ArrayList<>();
-        for (int i = farmitem.size()-1; i >=0 ; i--) {
-            if (X==farmitem.get(i).getX() && Y== farmitem.get(i).getY()){
-                if(warehouse.getCurrentcapacityleft()+farmitem.get(i).getSize()<=warehouse.getMAXCAPACITY()){
+        for (int i = farmitem.size()-1; i >=0 ; i--)
+        {
+            if (X_Y[0] == farmitem.get(i).getX() && X_Y[1] == farmitem.get(i).getY())
+            {
+                if(warehouse.getCurrentcapacityleft()+farmitem.get(i).getSize()<=warehouse.getMAXCAPACITY())
+                {
                     itemadded.add(farmitem.get(i).getType());
                     farmitem.remove(i);
                 }
             }
         }
         warehouse.AddItem(itemadded);
+    }
+
+    public int[] MinDistance(ArrayList<Item> farmitem)
+    {
+
+        double min=2500;
+        int[] X_Ymin=new int[2];
+        for(int i=farmitem.size()-1;i>=0;i--)
+        {
+            if(farmitem.get(i).getType().equals("grass"))
+            {
+                double distance=Math.pow(X-farmitem.get(i).getX(),2)+Math.pow(Y-farmitem.get(i).getY(),2);
+                if(distance<min)
+                {
+                    min=distance;
+                    X_Ymin[0]=farmitem.get(i).getX();
+                    X_Ymin[1]=farmitem.get(i).getY();
+                }
+            }
+        }
+        return X_Ymin;
+    }
+
+    public int[] FindRandItem(ArrayList<Item> farmitem)
+    {
+        int[] X_Y=new int[2];
+        int indexOfItem= (int) (Math.random()%farmitem.size());
+        for(int i=farmitem.size()-1;i>=0;i--)
+        {
+            if(indexOfItem==i)
+            {
+                X_Y[0]=farmitem.get(i).getX();
+                X_Y[1]=farmitem.get(i).getY();
+
+            }
+        }
+        return X_Y;
     }
 }
