@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fe2fb239-9bf6-4e15-9b15-88800321d26e" name="Default" comment="lastVersion1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/BakeCake.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/BakeCake.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Cat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ClothToDress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ClothToDress.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/CottonToFiber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/CottonToFiber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Farm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Farm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Map.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Map.java" afterDir="false" />
-    </list>
+    <list default="true" id="fe2fb239-9bf6-4e15-9b15-88800321d26e" name="Default" comment="lastVersion1" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +14,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Model/Cat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
+            <state relative-caret-position="816">
               <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
             </state>
           </provider>
@@ -325,7 +317,7 @@
       <workItem from="1545767075366" duration="3077000" />
       <workItem from="1545815637466" duration="5019000" />
       <workItem from="1545826811309" duration="3943000" />
-      <workItem from="1545835220975" duration="3695000" />
+      <workItem from="1545835220975" duration="3755000" />
     </task>
     <task id="LOCAL-00001" summary="firstcommit">
       <created>1544966073450</created>
@@ -383,11 +375,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545829053020</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="lastVersion1">
+      <created>1545839203873</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1545839203873</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="35563000" />
+    <option name="totallyTimeSpent" value="35623000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="828" extended-state="0" />
@@ -792,7 +791,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Cat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
+        <state relative-caret-position="816">
           <caret line="100" column="26" selection-start-line="100" selection-start-column="26" selection-end-line="100" selection-end-column="26" />
         </state>
       </provider>
