@@ -43,6 +43,6 @@ public abstract class Animal
         number=(int) Math.random()%4;
         return number;
     }
-    public abstract void NextTurn(int n,Farm farm,Warehouse warehouse);
+
 
 }

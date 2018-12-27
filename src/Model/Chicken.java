@@ -6,9 +6,10 @@ public class Chicken extends Domestic
 {
     private final int COST=100;
     private int produceTime=5;
-    private int hungrytime = 5;
-    private boolean ishungry;
+    private int hungrytime = 4;
     private final int MAXHEALTH = 5;
+    private int deathTime=5;
+
 
     public int getHungrytime() {
         return hungrytime;
@@ -45,99 +46,61 @@ public class Chicken extends Domestic
         farmitem.add(new Egg(X,Y));
     }
 
-    public void NextTurn(int n, Farm farm,Warehouse warehouse)
+    public void NextTurn(int n, Farm farm,Warehouse warehouse,ArrayList<Grass> grass)
     {
+        int x_yMin[]=new int[2];
 
         for (int i = 0; i < n ; i++)
         {
-            if (!ishungry)
-                Move(farm.getWIDTH(),farm.getHEIGHT());
-            else {
-                SmartMove(farm.itemArrayList);
-                Eat(farm.itemArrayList);
+            if(hungrytime==0)
+            {
+                ishungry=true;
             }
-            produceTime--;
-            checkhungry(n);
+
+
             if (produceTime==0)
             {
                 produceEgg(farm.itemArrayList);
                 produceTime=5;
             }
-        }
-
-    }
-    public void Move(int WIDTH,int HEIGHT) {
-        //TODO LIKE MOD
-        int random = FindRandom();
-        if (random == 0) {
-            if (Y + 1 <= HEIGHT)
-                Y++;
-            else
-                Y--;
-
-        } else if (random == 1) {
-            if (X + 1 <= WIDTH)
-                X += 1;
-            else
-                X--;
-        } else if (random == 2) {
-            if (Y - 1 >= 0)
-                Y --;
-            else
-                Y++;
-
-        } else if (random == 3) {
-            if (X - 1 >= 0)
-                X -= 1;
-            else
-                X++;
-        }
-    }
-    public int[] SmartMove(ArrayList<Item> farmitem)
-    {
-        //TODO BFS
-        double min=2500;
-        int[] X_Ymin=new int[2];
-        for(int i=farmitem.size()-1;i>=0;i--)
-        {
-            if(farmitem.get(i).getType().equals("grass"))
+            if(ishungry==true && goToGrass==false && death==false)
             {
-                double distance=Math.pow(X-farmitem.get(i).getX(),2)+Math.pow(Y-farmitem.get(i).getY(),2);
-                if(distance<min)
+
+                x_yMin=minDistanceToGrass(grass);
+                if(x_yMin[0]!=-1 && x_yMin[1]!=-1)
                 {
-                    min=distance;
-                     X_Ymin[0]=farmitem.get(i).getX();
-                     X_Ymin[1]=farmitem.get(i).getY();
+                    goToGrass = true;
+                }
+
+            }
+            if ((!ishungry || (ishungry==true && goToGrass==false))&& death==false)
+                Move(farm.getWIDTH(),farm.getHEIGHT());
+
+            if(deathTime==0)
+            {
+                death=true;//       وقتی nextturn مرغ در farm صدا زده شد آن هاایی که مردند را از Array پاک می کنیم.
+            }
+
+
+            if(ishungry && goToGrass && death==false)
+            {
+                MoveTograss(x_yMin);
+
+                if(Eat(grass))
+                {
+                    goToGrass=false;
+                    ishungry=false;
+                    hungrytime=5;
                 }
             }
-        }
-        return X_Ymin;
-    }
-
-    ///
-    ////
-    ////
-
-    public void Eat(ArrayList<Item> farmitem)
-    {
-
-        for (int i = farmitem.size()-1; i >= 0; i--)
-        {
-            if (farmitem.get(i).getType().equals("grass"))
+            if ( ishungry==true && goToGrass==false)
             {
-                if (X == farmitem.get(i).getX() && Y == farmitem.get(i).getY())
-                {
-                    farmitem.remove(i);
-                }
+                deathTime--;
             }
-        }
-    }
-    public void checkhungry(int n)
-    {
-        if (hungrytime==0){
-            ishungry=true;
-        }
-        else
             hungrytime--;
+            produceTime--;
+
+        }
+
     }
 }

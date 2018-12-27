@@ -3,28 +3,16 @@ package Model;
 import java.util.ArrayList;
 
 public class Sheep extends Domestic {
-    @Override
-    public void NextTurn(int n, Farm farm, Warehouse warehouse) {
-        if(n>=produceTime)
-        {
-            produceFiber(farm.getItemArrayList());
-            produceTime=n;
-        }
-        else
-        {
-            produceTime-=n;
-        }
-        for (int i = 0; i < n; i++) {
-            Move(farm.getWIDTH(),farm.getHEIGHT());
-        }
-    }
+
+
+    private final int COST=150;
+    private int produceTime=5;
+    private int hungrytime=7;
+    private int deathTime=7;
 
     public Sheep(int x, int y, String type) {
         super(x, y, type);
     }
-
-    private final int COST=150;
-    private int produceTime=5;
 
     public int getCOST() {
         return COST;
@@ -35,31 +23,62 @@ public class Sheep extends Domestic {
         farmitem.add(new Fiber(X,Y));
     }
 
-    public void Move(int WIDTH,int HEIGHT) {
-        //TODO LIKE MOD
-        int random = FindRandom();
-        if (random == 0) {
-            if (Y + 1 <= HEIGHT)
-                Y++;
-            else
-                Y--;
+    public void NextTurn(int n, Farm farm,Warehouse warehouse,ArrayList<Grass> grass)
+    {
+        int x_yMin[]=new int[2];
 
-        } else if (random == 1) {
-            if (X + 1 <= WIDTH)
-                X += 1;
-            else
-                X--;
-        } else if (random == 2) {
-            if (Y - 1 >= 0)
-                Y --;
-            else
-                Y++;
+        for (int i = 0; i < n ; i++)
+        {
+            if(hungrytime==0)
+            {
+                ishungry=true;
+            }
 
-        } else if (random == 3) {
-            if (X - 1 >= 0)
-                X -= 1;
-            else
-                X++;
+
+            if (produceTime==0)
+            {
+                produceFiber(farm.itemArrayList);
+                produceTime=5;
+            }
+            if(ishungry==true && goToGrass==false && death==false)
+            {
+
+                x_yMin=minDistanceToGrass(grass);
+                if(x_yMin[0]!=-1 && x_yMin[1]!=-1)
+                {
+                    goToGrass = true;
+                }
+
+            }
+            if ((!ishungry || (ishungry==true && goToGrass==false))&& death==false)
+                Move(farm.getWIDTH(),farm.getHEIGHT());
+
+            if(deathTime==0)
+            {
+                death=true;//       وقتی nextturn مرغ در farm صدا زده شد آن هاایی که مردند را از Array پاک می کنیم.
+            }
+
+
+            if(ishungry && goToGrass && death==false)
+            {
+                MoveTograss(x_yMin);
+
+                if(Eat(grass))
+                {
+                    goToGrass=false;
+                    ishungry=false;
+                    hungrytime=5;
+                }
+            }
+            if ( ishungry==true && goToGrass==false)
+            {
+                deathTime--;
+            }
+            hungrytime--;
+            produceTime--;
+
         }
+
     }
+
 }

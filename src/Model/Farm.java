@@ -99,7 +99,7 @@ public class Farm {
     public void Plant(String x,String y){
         int X=Integer.parseInt(x);
         int Y=Integer.parseInt(y);
-        grassArrayList.add(new Grass());
+        grassArrayList.add(new Grass(X,Y));
     }
     public void CatUpgrade()
     {
