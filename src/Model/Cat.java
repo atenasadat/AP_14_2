@@ -2,7 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Cat extends Animal {
+public  class Cat extends Animal {
     private int level;
     private final int upgradeMoney=50;
     private int TimeCarryItem=2;

@@ -15,7 +15,7 @@ public class Cow extends Domestic{
     }
 
 
-    public void NextTurn(int n,Farm farm,Warehouse warehouse)
+    public void NextTurn(int n, Farm farm,Warehouse warehouse,ArrayList<Grass> grass)
     {
         for (int i = 0; i < n; i++) {
             Move(farm.getWIDTH(),farm.getHEIGHT());

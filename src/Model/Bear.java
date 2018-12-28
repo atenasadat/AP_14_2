@@ -16,7 +16,7 @@ public class Bear extends Wild {
     }
 
     @Override
-    public void NextTurn(int n, Farm farm, Warehouse warehouse) {
+    public void NextTurn(int n) {
 
     }
 }

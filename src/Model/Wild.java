@@ -63,6 +63,6 @@ public abstract class Wild extends Animal{
     public void setISatcage(boolean ISatcage) {
         this.ISatcage = ISatcage;
     }
-    public abstract void NextTurn(int n , Farm farm , Warehouse warehouse);
+    public abstract void NextTurn(int n );
 
 }

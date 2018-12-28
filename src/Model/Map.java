@@ -196,25 +196,65 @@ public class Map {
 
         clothToDress.NextTurn(nexttime,warehouse.getWarehouseItems(),farm.getItemArrayList());
 
+        farm.wildNextTurn(nexttime);
+
         for (int i = getFarm().animalArrayList.size()-1; i >=0  ; i--)
         {
-            getFarm().animalArrayList.get(i).NextTurn(nexttime,farm,warehouse);
-            if (getFarm().animalArrayList.get(i) instanceof  Dog){
+            if (getFarm().animalArrayList.get(i) instanceof  Domestic)
+            {
+                Domestic domestic=(Domestic)getFarm().animalArrayList.get(i);
+                domestic.NextTurn( nexttime, farm,  warehouse,farm.grassArrayList) ;
+            }
+
+
+            if (getFarm().animalArrayList.get(i) instanceof  Chicken)
+            {
+                Chicken chicken=(Chicken)getFarm().animalArrayList.get(i);
+
+                if (chicken.death)
+                    getFarm().animalArrayList.remove(i);
+            }
+
+            if (getFarm().animalArrayList.get(i) instanceof  Sheep)
+            {
+                Sheep sheep=(Sheep)getFarm().animalArrayList.get(i);
+
+                if (sheep.death)
+                    getFarm().animalArrayList.remove(i);
+            }
+
+
+            if (getFarm().animalArrayList.get(i) instanceof  Wild)
+            {
+                Wild wild=(Wild)getFarm().animalArrayList.get(i);
+                wild.NextTurn(nexttime);
+            }
+
+
+
+            if (getFarm().animalArrayList.get(i) instanceof  Dog)
+            {
                 Dog dog=(Dog)getFarm().animalArrayList.get(i);
 
                 if (dog.isIsdead())
                     getFarm().animalArrayList.remove(i);
             }
+
+            if (getFarm().animalArrayList.get(i) instanceof  Cat)
+            {
+                Cat cat=(Cat)getFarm().animalArrayList.get(i);
+                cat.NextTurn(nexttime,farm,warehouse);
+            }
+            if (getFarm().animalArrayList.get(i) instanceof  Dog)
+            {
+                Dog dog=(Dog)getFarm().animalArrayList.get(i);
+                dog.NextTurn(nexttime,farm,warehouse);
+
+            }
         }
-        getFarm().wildNextTurn(nexttime);
-
-    }
-
-    public void catcollsion (ArrayList<String> type)
-    {
 
 
+   }
 
 
-    }
 }
