@@ -5,10 +5,18 @@ import java.util.ArrayList;
 public class Chicken extends Domestic
 {
     private final int COST=100;
-    private int produceTime=5;
-    private int hungrytime = 4;
-    private final int MAXHEALTH = 5;
-    private int deathTime=5;
+
+
+
+    public Chicken(int x, int y, String type) {
+        super(x, y, type);
+        super.produceTime = 5;
+        super.hungrytime = 4;
+        super.deathTime = 5;
+        super.ishungry=false;
+        super.goToGrass=false;
+        super.death=false;
+    }
 
 
     public int getHungrytime() {
@@ -27,18 +35,13 @@ public class Chicken extends Domestic
         this.ishungry = ishungry;
     }
 
-    public int getMAXHEALTH() {
-        return MAXHEALTH;
-    }
-
-    public Chicken(int x, int y, String type) {
-        super(x, y, type);
-    }
-
 
     public int getCOST() {
         return COST;
     }
+
+
+
 
     public void produceEgg(ArrayList<Item> farmitem)
     {

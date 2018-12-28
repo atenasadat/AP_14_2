@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 public abstract class Domestic extends Animal
 {
-    protected boolean ishungry=false;
-    protected boolean goToGrass=false;
-    protected boolean death=false;
+    protected boolean ishungry;
+    protected boolean goToGrass;
+    protected boolean death;
+    protected int produceTime;
+    protected int hungrytime;
+    protected int deathTime;
 
 
     public abstract void NextTurn(int n, Farm farm, Warehouse warehouse,ArrayList<Grass> grass) ;

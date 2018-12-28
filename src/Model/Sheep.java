@@ -6,13 +6,18 @@ public class Sheep extends Domestic {
 
 
     private final int COST=150;
-    private int produceTime=5;
-    private int hungrytime=7;
-    private int deathTime=7;
 
     public Sheep(int x, int y, String type) {
         super(x, y, type);
+        super.produceTime = 5;
+        super.hungrytime = 4;
+        super.deathTime = 5;
+        super.ishungry=false;
+        super.goToGrass=false;
+        super.death=false;
     }
+
+
 
     public int getCOST() {
         return COST;

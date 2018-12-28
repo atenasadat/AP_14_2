@@ -5,9 +5,17 @@ import java.util.ArrayList;
 public  class Cat extends Animal {
     private int level;
     private final int upgradeMoney=50;
-    private int TimeCarryItem=2;
     private boolean busy;
     private boolean permitFindX_Y;
+
+
+    public Cat(int x, int y, String type) {
+        super(x, y, type);
+        busy=false;
+        permitFindX_Y=false;
+        level=0;
+
+    }
 
     public int getUpgradeMoney() {
         return upgradeMoney;
@@ -20,10 +28,6 @@ public  class Cat extends Animal {
         this.level = level;
     }
 
-    public Cat(int x, int y, String type) {
-        super(x, y, type);
-
-    }
 
     public void Upgrade()
     {
@@ -66,7 +70,7 @@ public  class Cat extends Animal {
                     {
                         Move(farm.getWIDTH(), farm.getHEIGHT(), X_Ywerhouse);
                         putInWarehouse(getItem, warehouse);
-                        permitFindX_Y=true;
+
 
                     }
 
@@ -89,7 +93,7 @@ public  class Cat extends Animal {
                     {
                         Move(farm.getWIDTH(), farm.getHEIGHT(), X_Ywerhouse);
                         putInWarehouse(getItem, warehouse);
-                        permitFindX_Y=true;
+
                     }
                 }
             }
@@ -164,6 +168,7 @@ public  class Cat extends Animal {
         {
             warehouse.AddItem(getItem);
             busy=false;
+            permitFindX_Y=true;
 
         }
     }

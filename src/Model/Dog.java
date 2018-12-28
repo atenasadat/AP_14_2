@@ -1,4 +1,4 @@
-package Model;
+/*package Model;
 
 import java.util.ArrayList;
 
@@ -55,10 +55,7 @@ public class Dog extends Animal
 
         }
 
-    public void SmartMove(Farm farm ,int WIDTH , int HEIGHT)
-    {
-        findminpath(farm);
-    }
+
 
     public void Move(int WIDTH,int HEIGHT) {
         int random = FindRandom();
@@ -120,4 +117,4 @@ public class Dog extends Animal
         }
         return X_Ymin;
     }
-}
+}*/
