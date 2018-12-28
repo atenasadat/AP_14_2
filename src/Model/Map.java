@@ -174,7 +174,7 @@ public class Map {
             System.out.println("not possible");
     }
     public void TruckClear(){
-        truck.CLear(getWarehouse().getWarehouseItems());
+        truck.Clear(getWarehouse().getWarehouseItems());
     }
     public void HelicopterClear(){
 
@@ -252,8 +252,6 @@ public class Map {
 
             }
         }
-
-
    }
 
 

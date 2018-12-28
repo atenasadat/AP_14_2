@@ -4,12 +4,14 @@ import java.util.ArrayList;
 
 public class Truck extends Transportaion{
     ArrayList<Item> items=new ArrayList<>();
+    ArrayList<Animal> truckcagedanimal=new ArrayList<>();
 
     public Truck() {
         MAXCAPACITY=50;
         currentCapacity=0;
         UpgradeMoney=50;
         timeTravel=10;
+        doneTraveling=false;
     }
 
     @Override
@@ -24,8 +26,19 @@ public class Truck extends Transportaion{
                 }
             }
         }
+        for (int i = cageanimal.size()-1; i >=0 ; i--) {
+            if (warehouseitem.get(i).getType().equals(itemname)){
+                if (cageanimal.get(i) instanceof Lion){
+                    if (currentCapacity+((Lion) cageanimal.get(i)).getCagesize()<MAXCAPACITY){
+                        truckcagedanimal.add(cageanimal.get(i));
+                        cageanimal.remove(i);
+                        currentCapacity = currentCapacity + ((Lion) cageanimal.get(i)).getCagesize();
+                    }
+                }
+            }
+        }
     }
-    public void CLear(ArrayList<Item> warehouseitems)
+    public void Clear(ArrayList<Item> warehouseitems)
     {
         for (int i = items.size()-1; i >=0 ; i--)
         {
@@ -40,7 +53,7 @@ public class Truck extends Transportaion{
         isTravelling=true;
     }
 
-    public void nextturn(int n)
+    public void Nextturn(int n)
     {
         if(isTravelling)
         {
@@ -53,19 +66,19 @@ public class Truck extends Transportaion{
                 items.clear();
                 n -= timeTravel;
                 isTravelling=false;
+                doneTraveling=true;
+                timeTravel=10;
 
             }
-            if (n < timeTravel)
+            else if (n < timeTravel)
             {
                 timeTravel -= n;
             }
             if (n == 0)
             {
                 timeTravel = 10;
-
             }
         }
-
 
     }
 

@@ -1,4 +1,4 @@
-/*package Model;
+package Model;
 
 import java.util.ArrayList;
 
@@ -32,12 +32,11 @@ public class Dog extends Animal
         }
         else
             {
-            SmartMove(farm , farm.getWIDTH() , farm.getHEIGHT());
 
+            SmartMove(farm );
             AttackWild(farm);
 
-
-        }
+           }
         }
      }
 
@@ -84,6 +83,9 @@ public class Dog extends Animal
                 X++;
         }
     }
+    public void SmartMove(Farm farm){
+
+    }
 
     public boolean findWildAnimal(ArrayList<Animal> farmAnimal)
     {
@@ -117,4 +119,4 @@ public class Dog extends Animal
         }
         return X_Ymin;
     }
-}*/
+}

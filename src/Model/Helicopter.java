@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 public class Helicopter extends Transportaion {
     ArrayList<Item> items=new ArrayList<>();
+    ArrayList<Animal>helicoptercageanimal=new ArrayList<>();
     public Helicopter() {
         MAXCAPACITY=100;
         currentCapacity=0;
         UpgradeMoney=100;
     }
+
 
     @Override
     public void Travel (ArrayList<Wild> cageanimal, ArrayList<Item> warehousearrayList, int Count, String itemname) {
@@ -27,29 +29,30 @@ public class Helicopter extends Transportaion {
         for (int i = cageanimal.size() - 1; i >=0 ; i--)
         {
 
-            if(cageanimal.get(i).getType().equals(itemname))
-            {
-               //if (super.currentCapacity )
-
+            if (warehousearrayList.get(i).getType().equals(itemname)){
+                if (cageanimal.get(i) instanceof Lion){
+                    if (currentCapacity+((Lion) cageanimal.get(i)).getCagesize()<MAXCAPACITY){
+                        helicoptercageanimal.add(cageanimal.get(i));
+                        cageanimal.remove(i);
+                        currentCapacity = currentCapacity + ((Lion) cageanimal.get(i)).getCagesize();
+                    }
+                }
             }
 
         }
-
-
     }
 
     @Override
-    public void nextturn(int n)
+    public void Nextturn(int n)
     {
         if(isTravelling)
         {
             if (n >= timeTravel)
             {
-
                 items.clear();
                 n -= timeTravel;
                 isTravelling=false;
-
+                doneTraveling=true;
             }
             if (n < timeTravel)
             {
@@ -61,8 +64,6 @@ public class Helicopter extends Transportaion {
 
             }
         }
-
-
     }
 
 
@@ -76,6 +77,7 @@ public class Helicopter extends Transportaion {
         }
         currentCapacity=0;
     }
+
     public void Go()
     {
         isTravelling=true;
@@ -85,6 +87,7 @@ public class Helicopter extends Transportaion {
         }
 
     }
+
     public void Upgrade()
     {
         if(user.DecreaseMoney(UpgradeMoney))
@@ -94,6 +97,5 @@ public class Helicopter extends Transportaion {
             else
                 System.out.println("not possible");
         }
-
     }
 }

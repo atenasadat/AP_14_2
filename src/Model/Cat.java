@@ -57,7 +57,6 @@ public  class Cat extends Animal {
                     {
                         X_Y=FindRandItem(farm.getItemArrayList());
                         permitFindX_Y=false;
-
                     }
 
                     if(busy==false)
@@ -188,7 +187,6 @@ public  class Cat extends Animal {
                     X_Ymin[0]=farmitem.get(i).getX();
                     X_Ymin[1]=farmitem.get(i).getY();
                 }
-
         }
         return X_Ymin;
     }
