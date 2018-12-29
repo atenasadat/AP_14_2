@@ -11,6 +11,23 @@ import java.util.Scanner;
 public class Controller
 {
     Map map=new Map(new Farm(),new Warehouse());
+
+   public void CreatWorkshops(String name ,String[] inputs)
+   {
+
+
+
+   }
+
+
+   public void CreatWarehouse(String[] material)
+   {
+
+
+
+
+   }
+
     public void CommandAnalyzer(String input[])
     {
         if(input[0].equals("buy")){
