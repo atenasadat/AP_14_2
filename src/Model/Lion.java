@@ -1,24 +1,30 @@
 package Model;
 
 public class Lion extends Wild {
-    private int cagesize=20;
-    private  final int timeincage = 5;
+    public Lion(int x, int y, String type) {
+        super(x, y, type);
+        super.cageSize=20;
+    }
+
     public int getCagesize() {
-        return cagesize;
+        return cageSize;
     }
 
     public void setCagesize(int cagesize) {
-        this.cagesize = cagesize;
+        this.cageSize = cagesize;
     }
 
-    public Lion(int x, int y, String type, boolean ISatcage) {
-        super(x, y, type, ISatcage);
-    }
 
     @Override
-    public void NextTurn(int n)
+    public void NextTurn(int n,Farm farm)
     {
 
+        for(int i=0;i<n;i++)
+        {
+            Move(farm.getWIDTH(),farm.getHEIGHT());
+            kildDomestic(farm.animalArrayList);
+
+        }
 
     }
 }

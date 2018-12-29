@@ -227,7 +227,7 @@ public class Map {
             if (getFarm().animalArrayList.get(i) instanceof  Wild)
             {
                 Wild wild=(Wild)getFarm().animalArrayList.get(i);
-                wild.NextTurn(nexttime);
+                wild.NextTurn(nexttime,farm);
             }
 
 

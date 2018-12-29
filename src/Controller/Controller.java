@@ -16,6 +16,8 @@ public class Controller
         if(input[0].equals("buy")){
 
             map.getFarm().BuyAnimal(input[1]);
+
+
         }
         else if(input[0].equals("pickup"))
         {

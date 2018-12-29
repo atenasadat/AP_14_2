@@ -11,9 +11,18 @@ public class Farm {
     Animal animal;
     Item item;
     Wild wild;
-
     private  int WIDTH=20;
     private int HEIGHT=20;
+
+    public ArrayList<Animal> getAnimalArrayList() {
+        return animalArrayList;
+    }
+
+    public void setAnimalArrayList(ArrayList<Animal> animalArrayList) {
+        this.animalArrayList = animalArrayList;
+    }
+
+
 
     public int getWIDTH() {
         return WIDTH;
@@ -125,9 +134,13 @@ public class Farm {
                int x_rand = (int) Math.random() % 10 + 10 ;
                int y_rand = (int) Math.random() % 10 + 10;
                if(rand == 0)
-                   animalArrayList.add(new Lion(x_rand , y_rand , "lion" , false));
-               if(rand == 1) {
-                   animalArrayList.add(new Bear(x_rand, y_rand, "bear", false));
+               {
+                   animalArrayList.add(new Lion(x_rand , y_rand , "lion"));
+               }
+
+               if(rand == 1)
+               {
+                   animalArrayList.add(new Bear(x_rand, y_rand, "bear"));
                }
                n -= wild.getTimeAppear();
 
@@ -144,6 +157,9 @@ public class Farm {
 
 
     }
+
+
+
 
     public boolean hasItem()
     {

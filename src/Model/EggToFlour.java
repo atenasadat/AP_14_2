@@ -85,7 +85,7 @@ public class EggToFlour extends Workshop{
 
         }   else if(level == 3)
         {
-          ///TODO IN VIEW  System.out.printf("NOT POSSIBLE!!!");
+           System.out.printf("NOT POSSIBLE!!!");
 
         }
     }
@@ -98,7 +98,7 @@ public class EggToFlour extends Workshop{
         }
         else
         {
-            //TODO IN VIEW System.out.println("no enough money");
+             System.out.println("no enough money");
             return false;
 
         }
