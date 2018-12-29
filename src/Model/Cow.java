@@ -6,6 +6,11 @@ public class Cow extends Domestic{
     private final int COST=200;
 
 
+    @Override
+    public void NextTurn(int n, Farm farm, Warehouse warehouse, ArrayList<Grass> grass) {
+
+    }
+
     public Cow(int x, int y, String type) {
         super(x, y, type);
     }
