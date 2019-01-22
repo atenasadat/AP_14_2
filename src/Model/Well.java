@@ -46,6 +46,7 @@ public class Well {
 
     public void Fill()
     {
+
         if(user.DecreaseMoney(WATERINGCOST))
         {
             Capacity=MAXCAPACITY;

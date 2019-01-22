@@ -23,27 +23,27 @@ public abstract class Domestic extends Animal
             //TODO LIKE MOD
             int random = FindRandom();
             if (random == 0) {
-                if (Y + 1 <= HEIGHT)
-                    Y++;
+                if (Y + 10 <= HEIGHT)
+                    Y=Y + 10;
                 else
-                    Y--;
+                    Y=Y - 10;
 
             } else if (random == 1) {
-                if (X + 1 <= WIDTH)
-                    X += 1;
+                if (X + 10 <= WIDTH)
+                    X += 10;
                 else
-                    X--;
+                    X -=10;
             } else if (random == 2) {
-                if (Y - 1 >= 0)
-                    Y--;
+                if (Y - 10 >= 0)
+                    Y-=10;
                 else
-                    Y++;
+                    Y+=10;
 
             } else if (random == 3) {
-                if (X - 1 >= 0)
-                    X -= 1;
+                if (X - 10 >= 0)
+                    X -= 10;
                 else
-                    X++;
+                    X+=10;
             }
 
         }
@@ -133,5 +133,6 @@ public abstract class Domestic extends Animal
         }
         return false;
     }
+
 
 }
