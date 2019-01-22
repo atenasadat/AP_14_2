@@ -63,7 +63,7 @@ public class View extends Application {
     @Override
     public void start(Stage stage) throws FileNotFoundException {
         //Creating an image
-        Image image = new Image(new FileInputStream("/Users/atena/Desktop/back.png"));
+        Image image = new Image(new FileInputStream("image/background.png"));
 
         //Setting the image view
         ImageView imageView = new ImageView(image);
@@ -94,21 +94,21 @@ public class View extends Application {
 
         //Displaying the contents of the stage
         Circle chicken=new Circle(50,50,30);
-        Image img=new Image(new FileInputStream("/Users/atena/Desktop/test.png"));
+        Image img=new Image(new FileInputStream("image/chicken.png"));
         chicken.setFill(new ImagePattern(img));
         root.getChildren().add(chicken);
 
         Circle caw = new Circle(130,50,30);
-        Image img1 = new Image(new FileInputStream("/Users/atena/Desktop/test.png"));
+        Image img1 = new Image(new FileInputStream("image/chicken.png"));
         caw.setFill(new ImagePattern(img1));
         root.getChildren().add(caw);
 
         Circle sheep = new Circle(210,50,30);
-        Image img2 = new Image(new FileInputStream("/Users/atena/Desktop/test.png"));
+        Image img2 = new Image(new FileInputStream("image/chicken.png"));
         sheep.setFill(new ImagePattern(img2));
         root.getChildren().add(sheep);
 ///draw well
-        Image wellimage=new Image(new FileInputStream("/Users/atena/Desktop/well.png"));
+        Image wellimage=new Image(new FileInputStream("image/well.png"));
         ImageView wellimg=new ImageView(wellimage);
         wellimg.setX(380);
         wellimg.setY(150);
@@ -119,34 +119,40 @@ public class View extends Application {
             public void handle(MouseEvent event)
             {
                 int COLUMNS  =  4;
-                int COUNT    =  5;
-                int OFFSET_X =  20;
-                int OFFSET_Y =  20;
-                int WIDTH    = 67;
-                int HEIGHT   = 90;
+                int COUNT    =  2;
+                int OFFSET_X =  10;
+                int OFFSET_Y =  10;
+                int WIDTH    = 150;
+                int HEIGHT   = 150;
                 if(controller.FillWell()){
-                    Image IMAGE = null;
+                    Image img = null;
                     try {
-                        IMAGE = new Image(new FileInputStream("/Users/atena/Desktop/01.png"));
+                        img = new Image(new FileInputStream("image/animatedwells.png"));
 
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     }
 
 
-                    final WellView imageView = new WellView(IMAGE);
-                    imageView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
+                    final ImageView wellView = new ImageView(img);
+                    wellView.setViewport(new Rectangle2D(OFFSET_X, OFFSET_Y, WIDTH, HEIGHT));
 
                     final Animation animation = new SpriteAnimation(
-                            imageView,
+                            wellView,
                             Duration.millis(1000),
                             COUNT, COLUMNS,
                             OFFSET_X, OFFSET_Y,
                             WIDTH, HEIGHT
                     );
+
                     animation.setCycleCount(Animation.INDEFINITE);
+                    root.getChildren().remove(wellimg);
                     animation.play();
-                    root.getChildren().add(imageView);
+
+                    wellView.setX(380);
+                    wellView.setY(150);
+                    root.getChildren().add(wellView);
+                    stage.show();
 
                 }
             }
