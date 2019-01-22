@@ -49,20 +49,29 @@ public class Farm {
         this.itemArrayList = itemArrayList;
     }
 
-    public void BuyAnimal(String Type) {
+
+    public boolean BuyAnimal(String Type) {
         if (Type.equals("chicken")) {
 
-            if(user.DecreaseMoney(new Chicken(5,5,"chicken").getCOST()));
-            animalArrayList.add(new Chicken(5,5,"chicken"));
+            if(user.DecreaseMoney(new Chicken(500,500,"chicken").getCOST())) {
+                animalArrayList.add(new Chicken(500, 500, "chicken"));
+                //System.out.println(animalArrayList.size());
+                return true;
+            }
         }
         else if (Type.equals("sheep")) {
-            if(user.DecreaseMoney(new Sheep(5,5,"sheep").getCOST()));
-            animalArrayList.add(new Sheep(5,5,"sheep"));
+            if(user.DecreaseMoney(new Sheep(500,500,"sheep").getCOST())) {
+                animalArrayList.add(new Sheep(500, 500, "sheep"));
+                return true;
+            }
         }
         else if (Type.equals("cow")) {
-           if(user.DecreaseMoney(new Cow(5,5,"sheep").getCOST()));
-            animalArrayList.add(new Cow(5,5,"sheep"));
+            if(user.DecreaseMoney(new Cow(500,500,"sheep").getCOST())) {
+                animalArrayList.add(new Cow(500, 500, "sheep"));
+                return true;
+            }
         }
+        return false;
     }
 
     public ArrayList<String> PickUp(String x, String y) {

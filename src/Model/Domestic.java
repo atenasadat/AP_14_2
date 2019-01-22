@@ -10,6 +10,8 @@ public abstract class Domestic extends Animal
     protected int produceTime;
     protected int hungrytime;
     protected int deathTime;
+    private int randomCount=0;
+    int random = FindRandom();
 
 
     public abstract void NextTurn(int n, Farm farm, Warehouse warehouse,ArrayList<Grass> grass) ;
@@ -20,31 +22,44 @@ public abstract class Domestic extends Animal
 
         public void Move(int WIDTH,int HEIGHT)
         {
-            //TODO LIKE MOD
-            int random = FindRandom();
-            if (random == 0) {
-                if (Y + 1 <= HEIGHT)
-                    Y++;
-                else
-                    Y--;
 
-            } else if (random == 1) {
-                if (X + 1 <= WIDTH)
-                    X += 1;
-                else
-                    X--;
-            } else if (random == 2) {
-                if (Y - 1 >= 0)
-                    Y--;
-                else
-                    Y++;
-
-            } else if (random == 3) {
-                if (X - 1 >= 0)
-                    X -= 1;
-                else
-                    X++;
+            if(randomCount==10)
+            {
+                random = FindRandom();
+                randomCount=0;
             }
+
+
+           if (random == 0)
+           {
+                if (Y + 10 <= HEIGHT)
+                    Y = Y + 10;
+                else
+                    Y= Y - 10;
+
+            }
+           else if (random == 1)
+            {
+                if (X + 10 <= WIDTH)
+                    X += 10;
+                else
+                    X -= 10;
+            }
+           else if (random == 2)
+            {
+                if (Y - 10 >= 220)
+                    Y-=10;
+                else
+                    Y+=10;
+
+            }
+           else if (random == 3) {
+                if (X - 10 >= 220)
+                    X -= 10;
+                else
+                    X+=10;
+           }
+           randomCount++;
 
         }
 
@@ -133,5 +148,6 @@ public abstract class Domestic extends Animal
         }
         return false;
     }
+
 
 }

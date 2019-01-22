@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Map {
 
-    private Farm farm;
-    private Warehouse warehouse;
+    private Farm farm=new Farm();
+    private Warehouse warehouse=new Warehouse();
     private EggToFlour eggToFlour=new EggToFlour(0);
     private FlourToBread flourToBread=new FlourToBread(0);
     private BakeCake bakeCake=new BakeCake(0);
@@ -115,9 +115,6 @@ public class Map {
         this.warehouse = warehouse;
     }
 
-    public Map(Farm farm, Warehouse warehouse) {
-        this.farm = farm;
-    }
 
     public Farm getFarm() {
         return farm;

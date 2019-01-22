@@ -44,12 +44,15 @@ public class Well {
         Currenttime = currenttime;
     }
 
-    public void Fill()
+    public boolean Fill()
     {
+
         if(user.DecreaseMoney(WATERINGCOST))
         {
             Capacity=MAXCAPACITY;
+            return true;
         }
+        return false;
 
     }
     public void Upgrade()

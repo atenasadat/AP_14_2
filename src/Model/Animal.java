@@ -40,7 +40,10 @@ public abstract class Animal
     public int FindRandom()
     {
         int number;
-        number=(int) Math.random()%4;
+        Random random=new Random(System.nanoTime());
+        //number=(int)(Math.random() * 10)%4;
+        number=random.nextInt(4);
+        System.out.println("number is"+number);
         return number;
     }
 
