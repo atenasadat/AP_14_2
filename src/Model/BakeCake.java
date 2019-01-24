@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class BakeCake extends Workshop {
 
-    private   int x=0;
-    private  int y=2;
+    private   int x = 0;
+    private  int y =2 ;
     private int level;
     private int MAXLEVEL =3;
     private int producetime ;
@@ -25,9 +25,10 @@ public class BakeCake extends Workshop {
     }
 
     @Override
-    public  void produce(ArrayList<Item> warehouseitems, ArrayList<Item> farmitem) {
-        int counter1 =0;
-        int counter2 =0;
+    public  void produce(ArrayList<Item> warehouseitems, ArrayList<Item> farmitem)
+    {
+        int counter1 = 0;
+        int counter2 = 0;
         for (int i = 0; i <warehouseitems.size() ; i++)
         {
             if(warehouseitems.get(i).getType().equals("cookie"))
@@ -108,6 +109,27 @@ public class BakeCake extends Workshop {
             return false;
 
         }
+    }
+    ////// newly added//////
+    public boolean canproduce(ArrayList<Item> warehouseitems)
+    {
+        int cookicnt=0;
+        int eggcnt=0;
+        for (int i = 0; i <warehouseitems.size() ; i++)
+        {
+            if(warehouseitems.get(i) instanceof Cookie)
+
+                cookicnt++;
+            if(warehouseitems.get(i) instanceof Egg)
+
+                eggcnt++;
+
+        }
+        if(eggcnt ==0 || cookicnt==0)
+            return false;
+        else
+            return true;
+
     }
 
     public int numberofneeded(int level , int counter)

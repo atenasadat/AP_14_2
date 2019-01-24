@@ -104,7 +104,23 @@ public class CottonToFiber extends Workshop{
         return numberofitemsneeded;
     }
 
+    ////// newly added//////
+    public boolean canproduce(ArrayList<Item> warehouseitems)
+    {
+        int cnt=0;
+        for (int i = 0; i <warehouseitems.size() ; i++)
+        {
+            if(warehouseitems.get(i) instanceof Cotton)
 
+                cnt++;
+
+        }
+        if(cnt ==0)
+            return false;
+        else
+            return true;
+
+    }
 
     @Override
     public void Upgrade(int level) {

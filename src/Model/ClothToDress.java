@@ -44,7 +44,7 @@ public class ClothToDress extends Workshop {
         int counter=0;
         for (int i = 0; i <warehouseitems.size() ; i++)
         {
-            if(warehouseitems.get(i).getType().equals("cloth"))
+            if(warehouseitems.get(i) instanceof Cloth)
             {
                 counter++;
             }
@@ -103,6 +103,26 @@ public class ClothToDress extends Workshop {
 
         }
     }
+
+    @Override
+    public boolean canproduce(ArrayList<Item> warehouseitems) {
+
+            int cnt=0;
+            for (int i = 0; i <warehouseitems.size() ; i++)
+            {
+                if(warehouseitems.get(i) instanceof Cloth)
+
+                    cnt++;
+
+            }
+            if(cnt == 0)
+                return false;
+            else
+                return true;
+
+
+    }
+
     public boolean DecreaseMoney(int money)
     {
         if(user.getMoney()>money)

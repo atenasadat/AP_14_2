@@ -3,8 +3,8 @@ package Model;
 import java.util.ArrayList;
 
 public class EggToFlour extends Workshop{
-    private  final int x=0;
-    private final int y=2;
+    private  final int x = 0;
+    private final int y = 2;
     private int level;
     private int MAXLEVEL =3;
     private int producetime ;
@@ -27,7 +27,7 @@ public class EggToFlour extends Workshop{
         this.level = level;
     }
 
-    public void produce(ArrayList<Item> warehouseitems, ArrayList<Item> farmitem)
+    public void produce(ArrayList<Item> warehouseitems , ArrayList<Item> farmitem)
     {
         int counter=0;
         for (int i = 0; i <warehouseitems.size() ; i++)
@@ -50,10 +50,30 @@ public class EggToFlour extends Workshop{
                     tempneed--;
                 }
             }
+
+
         }
         producetime=10;
 
         isstarted=true;
+
+    }
+    ////// newly added//////
+    public boolean canproduce(ArrayList<Item> warehouseitems)
+    {
+        int cnt=0;
+        for (int i = 0; i <warehouseitems.size() ; i++)
+        {
+            if(warehouseitems.get(i) instanceof Egg)
+
+                cnt++;
+
+        }
+        if(cnt ==0)
+            return false;
+        else
+            return true;
+
     }
     public int numberofneeded(int level , int counter)
     {
@@ -103,6 +123,8 @@ public class EggToFlour extends Workshop{
 
         }
     }
+
+
     public void NextTurn(int n,ArrayList<Item> warehouseitem , ArrayList<Item> farmitem)
     {   if (isstarted)
     {

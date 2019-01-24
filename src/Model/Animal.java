@@ -8,7 +8,8 @@ public abstract class Animal
     protected int X;
     protected int Y;
     protected String Type;
-    public Animal(int x, int y, String type) {
+    public Animal(int x, int y, String type)
+    {
         X = x;
         Y = y;
         Type = type;

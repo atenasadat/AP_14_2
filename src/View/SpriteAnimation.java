@@ -22,7 +22,8 @@ public class SpriteAnimation extends Transition {
             Duration duration,
             int count,   int columns,
             int offsetX, int offsetY,
-            int width,   int height) {
+            int width,   int height)
+    {
         this.imageView = imageView;
         this.count     = count;
         this.columns   = columns;
@@ -34,7 +35,8 @@ public class SpriteAnimation extends Transition {
         setInterpolator(Interpolator.LINEAR);
     }
 
-    protected void interpolate(double k) {
+    protected void interpolate(double k)
+    {
         final int index = Math.min((int) Math.floor(k * count), count - 1);
         if (index != lastIndex) {
             final int x = (index % columns) * width  + offsetX;
@@ -43,4 +45,5 @@ public class SpriteAnimation extends Transition {
             lastIndex = index;
         }
     }
+
 }

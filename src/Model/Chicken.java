@@ -8,7 +8,8 @@ public class Chicken extends Domestic
 
 
 
-    public Chicken(int x, int y, String type) {
+    public Chicken(int x, int y, String type)
+    {
         super(x, y, type);
         super.produceTime = 5;
         super.hungrytime = 4;

@@ -79,6 +79,12 @@ public class FlourToBread  extends Workshop{
 
         }
     }
+
+    @Override
+    public boolean canproduce(ArrayList<Item> warehouseitems) {
+        return false;
+    }
+
     public boolean DecreaseMoney(int money)
     {
         if(user.getMoney()>money)

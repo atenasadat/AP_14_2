@@ -69,8 +69,9 @@ public abstract class Workshop
       protected final int level3Upgrade = 5000;
 
 
+
       public abstract void produce(ArrayList<Item> warehouseitems , ArrayList<Item> farmitem);
       public  abstract void Upgrade(int level);
-
+      public abstract boolean canproduce(ArrayList<Item> warehouseitems);
 
 }

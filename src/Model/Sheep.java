@@ -60,7 +60,7 @@ public class Sheep extends Domestic {
 
             if(deathTime==0)
             {
-                death=true;//       وقتی nextturn مرغ در farm صدا زده شد آن هاایی که مردند را از Array پاک می کنیم.
+                death=true;//       وقتی nextturn شیپ در farm صدا زده شد آن هاایی که مردند را از Array پاک می کنیم.
             }
 
 

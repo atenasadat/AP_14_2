@@ -73,6 +73,26 @@ public class FiberToCloth  extends Workshop{
 
 
     }
+
+
+
+    ////// newly added//////
+    public boolean canproduce(ArrayList<Item> warehouseitems)
+    {
+        int cnt=0;
+        for (int i = 0; i <warehouseitems.size() ; i++)
+        {
+            if(warehouseitems.get(i) instanceof Egg)
+
+                cnt++;
+
+        }
+        if(cnt ==0)
+            return false;
+        else
+            return true;
+
+    }
     public int numberofneeded(int level , int counter)
     {
         int numberofitemsneeded = counter-level>=0 ? level: counter;

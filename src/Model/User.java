@@ -18,9 +18,10 @@ public class User
     }
     public boolean DecreaseMoney(int cost)
     {
-        if(Money>=cost)
+        if(Money >= cost)
         {
-            Money=Money-cost;
+            Money = Money-cost;
+            System.out.println("cost functipon");
             return true;
 
         }
@@ -34,6 +35,7 @@ public class User
 
     public void IncreaseMoney(int cost)
     {
+
         Money=Money+cost;
     }
 

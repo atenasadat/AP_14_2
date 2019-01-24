@@ -12,7 +12,7 @@ public class Map {
     private CottonToFiber cottonToFiber=new CottonToFiber(0);
     private FiberToCloth fiberToCloth=new FiberToCloth(0);
     private ClothToDress clothToDress = new ClothToDress(0);
-    private Well well=new Well(5);
+    private Well well=new Well(0);
     private User user=User.getUser();
     private Helicopter helicopter=new Helicopter();
     private Truck truck=new Truck();

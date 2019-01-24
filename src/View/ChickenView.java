@@ -16,7 +16,7 @@ public class ChickenView extends ImageView{
     Chicken chicken_;
     public ChickenView(Chicken chicken_) throws FileNotFoundException {
         super();
-        Image chicken = new Image(new FileInputStream("/Users/atena/Desktop/test.png"));
+        Image chicken = new Image(new FileInputStream("image/chicken.png"));
         super.setImage(chicken);
         this.chicken_=chicken_;
         super.setFitHeight(100);
@@ -30,13 +30,5 @@ public class ChickenView extends ImageView{
         super.setX(chicken_.getX());
         super.setY(chicken_.getY());
         chicken_.Move(700,700);
-
-
-
     }
-
-
-
-
-
 }

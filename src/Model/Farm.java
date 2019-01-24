@@ -50,27 +50,49 @@ public class Farm {
     }
 
 
-    public boolean BuyAnimal(String Type) {
-        if (Type.equals("chicken")) {
+    public boolean BuyAnimal(String Type)
+    {
+        if (Type.equals("chicken"))
+        {
+//            for (int i = 0; i < animalArrayList.size() ; i++)
+//            {
+//                System.out.println("arraylist elements" + animalArrayList.get(i));
+//
+//            }
 
-            if(user.DecreaseMoney(new Chicken(500,500,"chicken").getCOST())) {
+            if(user.DecreaseMoney(new Chicken(500,500,"chicken").getCOST()))
+            {
                 animalArrayList.add(new Chicken(500, 500, "chicken"));
-                //System.out.println(animalArrayList.size());
+
+                System.out.println("chiiickeen---animalaraylist.size is:"+animalArrayList.size());
                 return true;
             }
         }
-        else if (Type.equals("sheep")) {
+
+        else if (Type.equals("sheep"))
+        {
             if(user.DecreaseMoney(new Sheep(500,500,"sheep").getCOST())) {
                 animalArrayList.add(new Sheep(500, 500, "sheep"));
                 return true;
             }
         }
-        else if (Type.equals("cow")) {
-            if(user.DecreaseMoney(new Cow(500,500,"sheep").getCOST())) {
-                animalArrayList.add(new Cow(500, 500, "sheep"));
+        else if (Type.equals("cow"))
+        {
+
+            if(user.DecreaseMoney(new Cow(500,500,"cow").getCOST()))
+            {
+                animalArrayList.add(new Cow(500, 500, "cow"));
+
+                System.out.println("cowwww-------animalaraylist.size="+animalArrayList.size());
+                System.out.println("add cow");
+
                 return true;
             }
         }
+
+////*&*&*&*&*&*&(*&*&*&TEST
+
+
         return false;
     }
 

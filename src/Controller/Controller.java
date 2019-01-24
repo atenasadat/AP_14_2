@@ -17,21 +17,33 @@ public class Controller {
 
     public boolean addChicken()
     {
-        if (map.getFarm().BuyAnimal("chicken"))
+        if(map.getFarm().BuyAnimal("chicken"))
         {
             return true;
         }
 
+          return false;
+    }
+
+    public boolean addCow()
+    {
+        if(map.getFarm().BuyAnimal("cow"))
+        {
+            return true;
+        }
+             return false;
+    }
+
+    public boolean addSheep()
+    {
+        if(map.getFarm().BuyAnimal("sheep"))
+        {
+            return true;
+        }
         return false;
     }
 
-    public void addCow() {
 
-    }
-
-    public void addSheep() {
-
-    }
     public boolean FillWell(){
         if (map.getWell().Fill()){
             return true;
