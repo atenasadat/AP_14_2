@@ -12,8 +12,8 @@ public class Flour extends Item {
         super.size = 2;
         super.setX(x);
         super.setY(y);
-
-
+        super.setType("flour");
+        cost  = 25;
     }
 
 

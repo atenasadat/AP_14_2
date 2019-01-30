@@ -10,6 +10,55 @@ public class EggToFlour extends Workshop{
     private int producetime ;
     private boolean isstarted;
     private int tempneed;
+    private int cost = 100;
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    @Override
+    public int getMAXLEVEL() {
+        return MAXLEVEL;
+    }
+
+    public void setMAXLEVEL(int MAXLEVEL) {
+        this.MAXLEVEL = MAXLEVEL;
+    }
+
+    public boolean isIsstarted() {
+        return isstarted;
+    }
+
+    public void setIsstarted(boolean isstarted) {
+        this.isstarted = isstarted;
+    }
+
+    public int getTempneed() {
+        return tempneed;
+    }
+
+    public void setTempneed(int tempneed) {
+        this.tempneed = tempneed;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
 
     public int getProducetime() {
         return producetime;
@@ -23,8 +72,10 @@ public class EggToFlour extends Workshop{
         return level;
     }
 
-    public EggToFlour(int level) {
+    public EggToFlour(int level)
+    {
         this.level = level;
+
     }
 
     public void produce(ArrayList<Item> warehouseitems , ArrayList<Item> farmitem)

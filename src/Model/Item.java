@@ -11,7 +11,8 @@ public class Item {
         return cost;
     }
 
-    public int getSize() {
+    public int getSize()
+    {
         return size;
     }
 

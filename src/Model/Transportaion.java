@@ -13,7 +13,9 @@ public abstract class Transportaion
     User user=User.getUser();
 
 
-    public abstract void Travel( ArrayList<Wild> cageanimal,ArrayList<Item> warehousearrayList,int Count,String itemname);
+    public abstract boolean Travel( ArrayList<Wild> cageanimal,ArrayList<Item> warehousearrayList,String itemname);
     public abstract void Nextturn(int n);
+
+
 
 }

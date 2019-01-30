@@ -2,9 +2,9 @@ package Model;
 
 public class Dress extends Item
 {
-    private final int size=2;
 
-    public Dress(int x, int y) {
+    public Dress(int x, int y)
+    {
         super.size =2;
         super.cost=25;
         super.setX(x);

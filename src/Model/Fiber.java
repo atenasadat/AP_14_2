@@ -11,6 +11,8 @@ public class Fiber extends Item
         super.cost=15;
         super.setX(x);
         super.setY(y);
+        cost = 25;
+        setType("fiber");
 
 
     }

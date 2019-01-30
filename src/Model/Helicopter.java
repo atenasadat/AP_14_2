@@ -13,7 +13,8 @@ public class Helicopter extends Transportaion {
 
 
     @Override
-    public void Travel (ArrayList<Wild> cageanimal, ArrayList<Item> warehousearrayList, int Count, String itemname) {
+    public boolean Travel (ArrayList<Wild> cageanimal, ArrayList<Item> warehousearrayList, String itemname) {
+        boolean flag = false;
         for (int i = warehousearrayList.size()-1; i >=0 ; i--)
         {
             if(warehousearrayList.get(i).getType().equals(itemname)){
@@ -22,24 +23,27 @@ public class Helicopter extends Transportaion {
                     items.add(warehousearrayList.get(i));
                     warehousearrayList.remove(i);
                     super.currentCapacity = super.currentCapacity + warehousearrayList.get(i).getSize();
-
+flag = true;
                 }
+
             }
         }
         for (int i = cageanimal.size() - 1; i >=0 ; i--)
         {
 
-            if (warehousearrayList.get(i).getType().equals(itemname)){
+            if (warehousearrayList.get(i).getType().equals(itemname))
+            {
                 if (cageanimal.get(i) instanceof Lion){
                     if (currentCapacity+((Lion) cageanimal.get(i)).getCagesize()<MAXCAPACITY){
                         helicoptercageanimal.add(cageanimal.get(i));
                         cageanimal.remove(i);
                         currentCapacity = currentCapacity + ((Lion) cageanimal.get(i)).getCagesize();
-                    }
+                        flag = true;
                 }
             }
 
-        }
+        }}
+         return flag;
     }
 
     @Override

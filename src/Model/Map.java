@@ -150,12 +150,12 @@ public class Map {
     }
     public void TruckAdd(String itemname,String count){
         int Count=Integer.parseInt(count);
-        truck.Travel(farm.getCageanimal() ,warehouse.getWarehouseItems(),Count,itemname);
+        truck.Travel(farm.getCageanimal() ,warehouse.getWarehouseItems(),itemname);
 
     }
     public void HElicopterAdd(String itemname,String count){
         int Count=Integer.parseInt(count);
-        helicopter.Travel(farm.getCageanimal(), warehouse.getWarehouseItems(),Count,itemname);
+        helicopter.Travel(farm.getCageanimal(), warehouse.getWarehouseItems(),itemname);
 
     }
     public void WellUpgrade()
@@ -249,6 +249,57 @@ public class Map {
 
             }
         }
+   }
+
+
+
+
+   public boolean  addworkshop(String name)
+   {
+       if(name.equals("eggtoflour"))
+       {
+
+           if(user.DecreaseMoney(eggToFlour.getCost()))
+           {
+               return true;
+           }
+
+       }
+      else if(name.equals("bakecake"))
+       {
+           if(user.DecreaseMoney(bakeCake.getCost()))
+               return true;
+       }
+
+
+      else if(name.equals("cottontofiber"))
+       {
+           if(user.DecreaseMoney(cottonToFiber.getCost()))
+               return true;
+       }
+
+
+      else if(name.equals("fibertocloth"))
+       {
+           if(user.DecreaseMoney(fiberToCloth.getCost()))
+               return true;
+       }
+
+
+     else
+         if(name.equals("flourtobread"))
+       {
+           if(user.DecreaseMoney(flourToBread.getCost()))
+               return true;
+       }
+
+      else
+          if(name.equals("clothtodress"))
+       {
+           if(user.DecreaseMoney(clothToDress.getCost()))
+               return true;
+       }
+       return false;
    }
 
 

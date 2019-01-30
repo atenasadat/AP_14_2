@@ -10,7 +10,68 @@ public class FlourToBread  extends Workshop{
     private int producetime=10;
     private int tempneed;
     private boolean isstarted;
+private int cost= 150;
 
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    @Override
+    public int getMAXLEVEL() {
+        return MAXLEVEL;
+    }
+
+    public void setMAXLEVEL(int MAXLEVEL) {
+        this.MAXLEVEL = MAXLEVEL;
+    }
+
+    public int getProducetime() {
+        return producetime;
+    }
+
+    public void setProducetime(int producetime) {
+        this.producetime = producetime;
+    }
+
+    public int getTempneed() {
+        return tempneed;
+    }
+
+    public void setTempneed(int tempneed) {
+        this.tempneed = tempneed;
+    }
+
+    public boolean isIsstarted() {
+        return isstarted;
+    }
+
+    public void setIsstarted(boolean isstarted) {
+        this.isstarted = isstarted;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
 
     public FlourToBread(int level) {
         this.level = level;

@@ -6,7 +6,8 @@ public class Truck extends Transportaion{
     ArrayList<Item> items=new ArrayList<>();
     ArrayList<Animal> truckcagedanimal=new ArrayList<>();
 
-    public Truck() {
+    public Truck()
+    {
         MAXCAPACITY=50;
         currentCapacity=0;
         UpgradeMoney=50;
@@ -15,28 +16,45 @@ public class Truck extends Transportaion{
     }
 
     @Override
-    public void Travel(ArrayList<Wild> cageanimal,ArrayList<Item> warehouseitem,int Count,String itemname) {
-        for (int i = warehouseitem.size()-1; i >=0 ; i--) {
-            if (warehouseitem.get(i).getType().equals(itemname)){
+    public boolean Travel(ArrayList<Wild> cageanimal,ArrayList<Item> warehouseitem,String itemname)
+    {
+
+        boolean flag = false;
+        for (int i = warehouseitem.size()-1; i >= 0; i--)
+        {
+            if (warehouseitem.get(i).getType().equals(itemname))
+            {
+
                 if(currentCapacity + warehouseitem.get(i).getSize()  < MAXCAPACITY)
                 {
-                   items.add(warehouseitem.get(i));
+                    System.out.println("size of warehouseitems before"+ warehouseitem.size());
+                    items.add(warehouseitem.get(i));
+                    currentCapacity = currentCapacity + warehouseitem.get(i).getSize();
                     warehouseitem.remove(i);
-                   currentCapacity = currentCapacity + warehouseitem.get(i).getSize();
+                    System.out.println("size of warehouseitems after"+ warehouseitem.size());
+                    return true;
                 }
+                else
+                    System.out.println("truck in full!!");
             }
         }
-        for (int i = cageanimal.size()-1; i >=0 ; i--) {
-            if (warehouseitem.get(i).getType().equals(itemname)){
+        for (int i = cageanimal.size()-1; i >=0 ; i--)
+        {
+            if (warehouseitem.get(i).getType().equals(itemname))
+            {
                 if (cageanimal.get(i) instanceof Lion){
                     if (currentCapacity+((Lion) cageanimal.get(i)).getCagesize()<MAXCAPACITY){
                         truckcagedanimal.add(cageanimal.get(i));
                         cageanimal.remove(i);
                         currentCapacity = currentCapacity + ((Lion) cageanimal.get(i)).getCagesize();
+                       return  true;
                     }
                 }
             }
+
+
         }
+        return false;
     }
     public void Clear(ArrayList<Item> warehouseitems)
     {

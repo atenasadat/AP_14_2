@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.StringWriter;
 import java.util.ArrayList;
 
 public class Warehouse
@@ -15,6 +16,16 @@ public class Warehouse
     User user=User.getUser();
     private ArrayList <Item> warehouseItems = new ArrayList<>();
 
+    public Warehouse() {
+
+///////test
+        warehouseItems.add(new Egg(0,0));
+        warehouseItems.add(new Egg(0,0));
+        warehouseItems.add(new Fiber(0,0));
+        warehouseItems.add(new Cloth(0,0));
+        warehouseItems.add(new Dress(0,0));
+        warehouseItems.add(new Egg(0,0));
+    }
 
     public int getX() {
         return x;
@@ -70,8 +81,11 @@ public class Warehouse
 
     public boolean AddItem(ArrayList<String> type)
     {
+
+
         for (int i = 0; i <type.size() ; i++)
         {
+
             if(type.get(i).equals("egg"))
             {
                 if(currentcapacityleft + 2 < MAXCAPACITY )
@@ -129,7 +143,7 @@ public class Warehouse
                 else
                     System.out.println("warehouse is full!");
             }
-            else if (type.get(i).equals("bread"))
+            else if (type.get(i).equals("cake"))
             {
                 if(currentcapacityleft+ 2 < MAXCAPACITY ) {
                     warehouseItems.add(new Cookie(0, 0));
@@ -149,8 +163,42 @@ public class Warehouse
                 else
                     System.out.println("warehouse is full!");
             }
+            else if (type.get(i).equals("bread"))
+            {
+
+                if(currentcapacityleft+ 2 < MAXCAPACITY ) {
+                    warehouseItems.add(new Bread(0, 0));
+                    currentcapacityleft += 2;
+                    return true;
+
+                }
+                else
+                    System.out.println("warehouse is full!");
+            }
         }
         return false;
+
+    }
+
+
+
+
+    public int countof(String type)
+    {
+
+        int cnt=0;
+
+        for (int i = 0; i <getWarehouseItems().size() ; i++)
+        {
+            if(warehouseItems.get(i).getType().equals(type))
+            {
+                cnt++;
+            }
+
+
+        }
+        return cnt;
+
 
     }
 }

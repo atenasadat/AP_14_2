@@ -11,6 +11,25 @@ public class CottonToFiber extends Workshop{
     private int producetime ;
     private boolean isstarted;
     private int tempneed;
+    private int cost = 200;
+
+    @Override
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    @Override
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
 
     public int getProducetime() {
         return producetime;

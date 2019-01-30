@@ -1,18 +1,16 @@
 package Model;
 
-public class Cloth extends Item {
-
-    public Cloth(int x, int y)
-    {
+public class Bread extends Item{
+    public Bread(int x , int y) {
         super.size = 2;
-        super.cost = 25;
+        super.cost = 15;
         super.setX(x);
         super.setY(y);
-        super.setType("cloth");
+        super.setType("bread");
+
     }
 
     public int getSize()
-
     {
         return size;
     }

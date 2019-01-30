@@ -2,7 +2,7 @@ package Model;
 
 public class User
 {
-    private int Money=2000;
+    private int Money= 600;
     private static User user=new User();
     public static  User getUser()
     {

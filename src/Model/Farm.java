@@ -113,8 +113,8 @@ public class Farm {
         return temptype;
     }
     public void Cage(String x,String y){
-        int X=Integer.parseInt(x);
-        int Y=Integer.parseInt(y);
+        int X = Integer.parseInt(x);
+        int Y = Integer.parseInt(y);
         for (int i = animalArrayList.size()-1; i >=0; i--) {
             if (animalArrayList.get(i) instanceof Lion || animalArrayList.get(i) instanceof Bear) {
                 if (animalArrayList.get(i).getX() == X && animalArrayList.get(i).getY() == Y) {

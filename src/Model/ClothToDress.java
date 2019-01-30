@@ -10,9 +10,43 @@ public class ClothToDress extends Workshop {
     private int producetime ;
     private boolean isstarted;
     private int tempneed;
+    private int cost = 350;
 
     public int getProducetime() {
         return producetime;
+    }
+
+    @Override
+    public int getX() {
+        return x;
+    }
+
+    @Override
+    public int getY() {
+        return y;
+    }
+
+    @Override
+    public int getLevel() {
+        return level;
+    }
+
+    @Override
+    public void setLevel(int level) {
+        this.level = level;
+    }
+
+    @Override
+    public int getMAXLEVEL() {
+        return MAXLEVEL;
+    }
+
+    public int getCost() {
+        return cost;
+    }
+
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 
     public void setProducetime(int producetime) {

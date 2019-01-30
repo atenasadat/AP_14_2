@@ -10,7 +10,7 @@ public class Egg extends Item
         super.setType("egg");
     }
 
-    private final int size=1;
+
         public int getSize()
         {
             return size;

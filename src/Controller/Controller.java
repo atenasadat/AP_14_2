@@ -8,7 +8,8 @@ import Model.Warehouse;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Controller {
+public class Controller
+{
     Map map = new Map();
 
     public Map getMap() {
@@ -44,10 +45,21 @@ public class Controller {
     }
 
 
-    public boolean FillWell(){
+    public boolean FillWell()
+    {
         if (map.getWell().Fill()){
             return true;
         }
         return false;
     }
+
+///newly added
+
+    public  boolean addworkshop(String name)
+    {
+        if(map.addworkshop(name))
+            return true;
+        return false;
+    }
+
 }
